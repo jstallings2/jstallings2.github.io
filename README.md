@@ -51,6 +51,7 @@ npm run dev
   /(site)
     /projects          # Engineering and creative projects
     /music             # Music releases and DJ mixes
+    /resume            # Formatted resume with highlights
     /about             # Bio and background
     /labs              # Interactive demos (WebAudio/WebGL)
     /contact           # Contact information
@@ -108,8 +109,8 @@ Edit the Tailwind config (`tailwind.config.ts`) to adjust colors, fonts, and spa
 colors: {
   bg: "#050509",
   surface: "#0d0d14",
-  accent: "#14b8a6",        // teal
-  accentSecondary: "#ec4899", // pink
+  accent: "#4465CB",        // blue
+  accentSecondary: "#D15045", // red
   muted: "#6b7280",
 }
 ```

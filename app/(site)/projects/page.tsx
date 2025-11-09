@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PageTransition from "@/components/animations/PageTransition";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -34,6 +36,7 @@ export default function ProjectsPage() {
                     title={project.title}
                     subtitle={project.subtitle}
                     tags={project.tags}
+                    href={project.url}
                   >
                     <p className="text-sm leading-relaxed">
                       {project.description}
@@ -58,6 +61,7 @@ export default function ProjectsPage() {
                     title={project.title}
                     subtitle={project.subtitle}
                     tags={project.tags}
+                    href={project.url}
                   >
                     <p className="text-sm leading-relaxed">
                       {project.description}
@@ -83,6 +87,7 @@ export default function ProjectsPage() {
                       title={project.title}
                       subtitle={project.subtitle}
                       tags={project.tags}
+                      href={project.url}
                     >
                       <p className="text-sm leading-relaxed">
                         {project.description}

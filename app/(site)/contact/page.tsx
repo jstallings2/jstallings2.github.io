@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PageTransition from "@/components/animations/PageTransition";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -99,11 +101,8 @@ export default function ContactPage() {
                 <Button href="/music" variant="secondary">
                   Listen to Music
                 </Button>
-                <Button
-                  href="#" // TODO: Add link to resume PDF
-                  variant="ghost"
-                >
-                  Download Resume
+                <Button href="/resume" variant="ghost">
+                  View Resume
                 </Button>
               </div>
             </div>

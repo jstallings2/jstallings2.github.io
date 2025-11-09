@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PageTransition from "@/components/animations/PageTransition";
 import SectionHeader from "@/components/ui/SectionHeader";

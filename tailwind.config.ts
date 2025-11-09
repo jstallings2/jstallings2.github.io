@@ -13,14 +13,14 @@ const config: Config = {
         surface: "#0d0d14",
         surfaceLight: "#1a1a24",
         accent: {
-          DEFAULT: "#14b8a6", // teal
-          light: "#2dd4bf",
-          dark: "#0d9488",
+          DEFAULT: "#4465CB", // blue
+          light: "#6B8AE8",
+          dark: "#2D4A9F",
         },
         accentSecondary: {
-          DEFAULT: "#ec4899", // pink/magenta
-          light: "#f472b6",
-          dark: "#db2777",
+          DEFAULT: "#D15045", // red
+          light: "#E87266",
+          dark: "#B03A30",
         },
         muted: {
           DEFAULT: "#6b7280",
@@ -32,8 +32,8 @@ const config: Config = {
         sans: ["var(--font-space-grotesk)", "Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 20px rgba(20, 184, 166, 0.3)",
-        glowPink: "0 0 20px rgba(236, 72, 153, 0.3)",
+        glow: "0 0 20px rgba(68, 101, 203, 0.3)",
+        glowPink: "0 0 20px rgba(209, 80, 69, 0.3)",
         card: "0 4px 24px rgba(0, 0, 0, 0.4)",
       },
       animation: {

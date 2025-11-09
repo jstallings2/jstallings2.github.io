@@ -12,7 +12,7 @@ const ClipperDemoPlaceholder: React.FC = () => {
     >
       <motion.div
         className="flex aspect-video w-full items-center justify-center rounded-xl border border-accent/20 bg-bg"
-        whileHover={{ borderColor: "rgba(20, 184, 166, 0.5)" }}
+        whileHover={{ borderColor: "rgba(68, 101, 203, 0.5)" }}
       >
         <div className="max-w-md text-center">
           <motion.div

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PageTransition from "@/components/animations/PageTransition";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -128,11 +130,8 @@ export default function AboutPage() {
                 Interested in collaboration or want to learn more about my work?
               </p>
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Button
-                  href="#" // TODO: Add link to actual PDF resume
-                  variant="primary"
-                >
-                  Download Resume
+                <Button href="/resume" variant="primary">
+                  View Resume
                 </Button>
                 <Button href="/contact" variant="secondary">
                   Get in Touch

@@ -45,9 +45,12 @@ const Card: React.FC<CardProps> = ({
   );
 
   if (href) {
+    const isExternal = href.startsWith("http");
     return (
       <motion.a
         href={href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         whileHover={hoverable ? { scale: 1.02 } : {}}
         className="block"
       >

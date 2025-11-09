@@ -14,8 +14,8 @@ const HomeHero: React.FC = () => {
         <motion.div
           className="h-full w-full"
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(20, 184, 166, 0.1) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(20, 184, 166, 0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, rgba(68, 101, 203, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(68, 101, 203, 0.1) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
           animate={{

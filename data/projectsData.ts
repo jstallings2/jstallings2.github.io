@@ -7,18 +7,20 @@ export interface Project {
   tags: string[];
   category: "audio" | "fullstack" | "experiments";
   featured?: boolean;
+  url?: string;
 }
 
 export const projects: Project[] = [
   {
     id: "clipperx",
     title: "ClipperX",
-    subtitle: "Solo project · JUCE + OpenGL",
+    subtitle: "Lead Developer · Bender Audio",
     description:
-      "Professional audio clipping plugin with real-time DSP processing and stunning OpenGL visualizations. Features multiple clipping algorithms, advanced metering, and a fully resizable UI. Built for professional audio production workflows.",
+      "Professional audio clipping plugin with real-time DSP processing and OpenGL waveform visualizations. Features multiple clipping algorithms, advanced metering, and a fully resizable UI. Built for professional audio production workflows.",
     tags: ["Audio Plugin", "JUCE", "C++", "OpenGL", "DSP"],
     category: "audio",
     featured: true,
+    url: "https://benderaudio.com",
   },
   {
     id: "analog-circuit",

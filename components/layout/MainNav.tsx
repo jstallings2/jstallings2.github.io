@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const navItems = [
   { label: "Work", href: "/projects" },
   { label: "Music", href: "/music" },
+  { label: "Resume", href: "/resume" },
   { label: "About", href: "/about" },
   { label: "Labs", href: "/labs" },
   { label: "Contact", href: "/contact" },
