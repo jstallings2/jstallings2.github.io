@@ -1,0 +1,304 @@
+commit 93c69ffb5754d8cc93c8bd5b202dbec18700809f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-11-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-11-07
+
+    point to deployed for prod
+
+src/components/CircuitList.jsx
+
+commit 49b5fdba8f0afd0a54f27eae4efd64f36f44ab3a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-11-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-11-06
+
+    remove double heading, go back to circuit icon fallback
+
+src/App.jsx
+src/components/CircuitList.jsx
+
+commit 7fdb3c36eea3c041633ddca1106575609ec9c123
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-30
+
+    add new presets and ui cleanup, schematic images showing. category icons need tweaking
+
+index.html
+public/icons/Amplifier_navy.png
+public/icons/Chain_navy.png
+public/icons/Custom_navy.png
+public/icons/Equalizer_navy.png
+public/icons/Pedal_navy.png
+public/icons/Saturation_navy.png
+public/icons/Utility_navy.png
+src/components/CircuitDetailModal.jsx
+src/components/CircuitList.jsx
+src/components/core/Dialog.jsx
+src/index.css
+
+commit 6c8197e888dde428e87dd60ffe8f5b7c738d0a93
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-29
+
+    (wv) dynamically vary bg color of popup when user changes skins
+
+index.html
+src/index.css
+src/main.jsx
+vite.config.js
+
+commit fc8d9eae8c0748c76e8373a52f8a2f0935f04a18
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-29
+
+    remove likes, skeleton loader
+
+src/components/CircuitDetailModal.jsx
+src/components/CircuitList.jsx
+
+commit d2510961577eff08944b026c4dba3b1f539d59cc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-17
+
+    deployment guide
+
+BinaryDataCodeChange.png
+ProjucerLocation.png
+README.md
+
+commit 2b0eb08de820b83a7f32b8ebe544d36c96231f7a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-17
+
+    bundle release with staging wp server success
+
+src/components/CircuitList.jsx
+
+commit 6c87db7d02c47dfa68403bb8024080c62ac45926
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-17
+
+    update deploy script
+
+README.md
+package-lock.json
+package.json
+
+commit 9ed58c09067d1e024e03bddbd20164b1c377cbf1
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-09
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-09-09
+
+    fix disabled state text on modal buttons
+
+src/components/CircuitDetailModal.jsx
+
+commit e72df2446983a5c23970176ae97a403637b48a58
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-21
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-21
+
+    download count display, date parsing issue fixed
+
+src/components/CircuitDetailModal.jsx
+src/components/CircuitList.jsx
+
+commit 66b2a751035dce53b395b8e06253e3b5419e3b78
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-21
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-21
+
+    circuit details modal design
+
+src/components/CircuitDetailModal.jsx
+src/components/CircuitList.jsx
+src/components/core/Dialog.jsx
+
+commit 640b750a8016798e8a2cfcea26f0109e96dd29e0
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-08
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-07-08
+
+    toast notifications initial
+
+package-lock.json
+package.json
+src/App.jsx
+src/components/CircuitList.jsx
+
+commit ae06482eb72e5dde448c186ea8b39fd4438f73f1
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-08
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-07-08
+
+    hide download all, internet offline message
+
+src/App.jsx
+src/components/CircuitList.jsx
+src/components/OfflineMessage.jsx
+
+commit cd794a7900e849e0f55ca9b3060aede5647c9a5a
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-08
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-07-08
+
+    loading spinner for download buttons
+
+src/components/CircuitList.jsx
+
+commit 13470ebfc36789fa32be2dcb6ca2d9381bd97903
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-27
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-06-27
+
+    handle completion to set button checkmark state
+
+src/App.jsx
+src/components/CircuitList.jsx
+
+commit edd40363746170a63f03c2725534fdba539191be
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-23
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-06-23
+
+    separate single and download all functions
+
+src/App.jsx
+src/components/CircuitList.jsx
+
+commit 05cdde3f8a239c941b0b5aafeac04ce24ad565a0
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-09
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-06-09
+
+    checkmark disable working for TESTCIRCUIT, should test with multiple
+
+src/components/CircuitList.jsx
+
+commit 9f91a45b4f4c5979fb1826739050d52789ee4cb6
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    download single circuit working
+
+src/App.jsx
+
+commit 41cbd7ca7e7fff1979e2277250f122e113fdc5df
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-01
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-06-01
+
+    serve circuit list from wordpress - local working
+
+src/components/CircuitList.jsx
+
+commit f5741f7ff78a79e5f82fa6e72694e2d4084d8091
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-24
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-04-24
+
+    download all button working, juce backend hooked up
+
+src/App.jsx
+src/juce/javascript/check_native_interop.js
+src/juce/javascript/index.js
+src/juce/javascript/package.json
+
+commit d227ee8c2255a2cafb86c0e81d0ed60b7f7f32f7
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-24
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-04-24
+
+    bundle ui working
+
+acf-webview-ui.zip
+package-lock.json
+package.json
+
+commit 69ab65e4b904abd866089ec45005cbac3b276f60
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-24
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-04-24
+
+    revert to tailwind 3, now looks good with safari 15
+
+package-lock.json
+package.json
+postcss.config.cjs
+src/index.css
+vite.config.js
+
+commit 99922e9b99ae150c7e8756ec15a0059d25775f02
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-24
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-04-24
+
+    bundled ui worked, but some issues with old safari
+
+acf-webview-ui.zip
+
+commit 9486776bf089134777571ecb0a3b649118e6eb0b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-27
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-27
+
+    some ui changes to filters, add more circuits to mock data
+
+public/mock/circuit-registry.json
+src/components/CircuitList.jsx
+src/components/core/Button.jsx
+
+commit a3c33d71457dc2e644a89c9371632c7c4b71b9c8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-27
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-27
+
+    init vite, tailwind, shadcn components
+
+.gitignore
+index.html
+package-lock.json
+package.json
+public/mock/circuit-registry.json
+src/App.jsx
+src/components/CircuitList.jsx
+src/components/core/Badge.jsx
+src/components/core/Button.jsx
+src/components/core/Dialog.jsx
+src/components/core/Input.jsx
+src/index.css
+src/main.jsx
+tailwind.config.js
+vite.config.js

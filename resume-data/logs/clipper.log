@@ -1,0 +1,891 @@
+commit a770cff0e2ea952cad6bc984926e0e3bfceab8d8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-09
+
+    bump version in other places, remove resizable corner ui
+
+ClipperX/Source/PluginEditor.cpp
+
+commit 1f5e0f2bffed6adeb42aa25de85ca8759616a0b1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-10-08
+
+    All changes from Sprint 9, Sep - Mid-Oct. (#109)
+    
+    * projucer: add aax, vst
+    
+    * remove half frames from knob filmstrip to help load size
+    
+    * remove resizable corner ui but still resizable
+    
+    * thicken and move power and settings icons
+    
+    * fix: waveform scale with input gain
+    
+    * dynamically populate build info string
+    
+    * go back to old settings button
+    
+    * back to og power button
+    
+    * power button tiny tweaks
+    
+    * fix: build string format wrapper populate from processor
+    
+    * menu link updates
+    
+    * invert clip mode switch, soft is default now
+    
+    * bump version
+
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/JuceLibraryCode/JucePluginDefines.h
+ClipperX/Source/BinaryData/v3Orange/power_thickened.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_button_settings.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_knob_filmstrip_v6.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_knob_v6_halfed.png
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+
+commit 80ee8f485aaa7adb7fa5683fc4bc827f14d0e16d
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-09-08
+
+    sprint 8 trunk to develop with opt ui (#108)
+    
+    * Sprint8/settings menu (#94)
+    
+    * menu looks good need to remove old one
+    
+    * Remove old settings overlay and resources in favor of burger popup
+    
+    * settings menu lookandfeel initial
+    
+    * removed dummy menu options (#100)
+    
+    * Internal Bypass (Power) button added, bypassed UI updates (#99)
+    
+    * removed dummy menu options
+    
+    * Got something drawableButton to show up
+    
+    * power Button added - no backend yet
+    
+    * Bypass(power) button - UI hooked up
+    
+    * bypass button bypasses DSP audio
+    
+    * down toggle state
+    
+    * orange toggle state
+    
+    * cursor pointer for power and burger buttons
+    
+    * upd bypass screen UI
+    
+    * Settings menu incr. size and resizable corner is back (#101)
+    
+    * setting menu bigger
+    
+    * bring back resizable corner
+    
+    * Optimized GUI drawing (#103) (#106)
+    
+    * Optimized GUI drawing (#103)
+    
+    * Windows compatibility (#102)
+    
+    * Add windows exporter in projucer
+    
+    * made the required changes in code to run in windows
+    
+    ---------
+    
+    Co-authored-by: Jacob Stallings <jacobcstallings@icloud.com>
+    
+    ---------
+    
+    Co-authored-by: Joaquin Saavedra <joaquin@edgeaudiolabs.com>
+    
+    ---------
+    
+    Co-authored-by: Joaquin Saavedra <joaquin@edgeaudiolabs.com>
+
+ClipperX/ClipperX.jucer
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+
+commit b51633c0dc4d8755c60ce793a32c88be41e3dcfc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-09-08
+
+    Sprint8 merge to develop (no viz opt) (#107)
+    
+    * Sprint8/settings menu (#94)
+    
+    * menu looks good need to remove old one
+    
+    * Remove old settings overlay and resources in favor of burger popup
+    
+    * settings menu lookandfeel initial
+    
+    * removed dummy menu options (#100)
+    
+    * Internal Bypass (Power) button added, bypassed UI updates (#99)
+    
+    * removed dummy menu options
+    
+    * Got something drawableButton to show up
+    
+    * power Button added - no backend yet
+    
+    * Bypass(power) button - UI hooked up
+    
+    * bypass button bypasses DSP audio
+    
+    * down toggle state
+    
+    * orange toggle state
+    
+    * cursor pointer for power and burger buttons
+    
+    * upd bypass screen UI
+    
+    * Settings menu incr. size and resizable corner is back (#101)
+    
+    * setting menu bigger
+    
+    * bring back resizable corner
+
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/Source/BinaryData/v3Orange/power.svg
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+ClipperX/Source/PluginProcessor.h
+ClipperX/Source/SettingsOverlay.h
+
+commit 84c11320aac917698eb89301633f9aa79ac44c5e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-15
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-08-15
+
+    Waveform accuracy improvements (#93)
+    
+    * remove logging
+    
+    * back to og visual but without logs
+    
+    * make waveform symettrical always peaks
+    
+    * fixed lossy waveform but a bit jittery
+    
+    * divide all incoming audio based on num_chunks
+    
+    * projucer cleanup, signposts, temporarily removed knob image
+    
+    * more signposts
+    
+    * glBufferSubData
+    
+    * 2 chunks actually looks better than 16
+    
+    * add back in knobs for build
+
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/Source/BinaryData/Font/MBF Origin.otf
+ClipperX/Source/BinaryData/Font/MBF Origin.woff
+ClipperX/Source/BinaryData/v3Orange/Threshold Line orange glow.png
+ClipperX/Source/BinaryData/v3Orange/Threshold Line orange.png
+ClipperX/Source/BinaryData/v3Orange/bender_audio_logo_white.png
+ClipperX/Source/BinaryData/v3Orange/label_OFF_activated.png
+ClipperX/Source/BinaryData/v3Orange/label_OFF_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/label_ON_activated.png
+ClipperX/Source/BinaryData/v3Orange/label_ON_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/label_OVERSAMPLING.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_controls.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_main.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_overlay2.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_settings2.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_button_CLOSE_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_button_settings.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_HARD_activated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_HARD_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_INPUT.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_MODE.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_OUTPUT.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SETTINGS_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SOFT_activated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SOFT_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_USERMANUAL_wIcon_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_logo.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_off.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_off.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_on.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_on.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_threshold_line.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_threshold_line_glow.png
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+ClipperX/Source/RingBuffer.h
+
+commit bd9b6138772c167626ec24cd42f939987e765b5f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-16
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-04-16
+
+    Sprint6/glow (#90)
+    
+    * in a decent spot
+    
+    * hooked up mouseover
+    
+    * decent glow visually
+    
+    * glow is in a good spot, but waveform stuttering after a while
+    
+    * extend horizontally with zoomfactor
+    
+    * increase glow height slightly
+    
+    * add x logo on top
+    
+    * hide ResizableCornerComponent
+
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/Source/BinaryData/v3Orange/Threshold Line orange glow.png
+ClipperX/Source/BinaryData/v3Orange/bender_audio_logo_white.png
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+
+commit 1920e5d04c8ca3bbc367b7911a86e1f72d503793
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-01
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-04-01
+
+    Update README.md
+
+README.md
+
+commit 0630817c5c98a0149b567ce115169aebee22b48a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-01
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-04-01
+
+    Update README.md
+
+README.md
+
+commit 0f5084c749afc45647335759440ea1d0b1c3bbe6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-01
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-04-01
+
+    Sprint5/test (#89)
+    
+    * S4b/blocky waveform issue (#75)
+    
+    * logging for zero reads
+    
+    * more logging at all draw stages
+    
+    * add more logging for ring buffer ops
+    
+    * S4b/uiv3 (#76)
+    
+    * ui v3 initial
+    
+    - use assets from hyphn
+    - knobs need updating filmstrips
+    - toggle switches are svg
+    - raster resizability implemented
+    
+    * add oversampling labels
+    
+    * change oversampling to toggleButton
+    
+    * edit size to 1200x700
+    
+    * modeSelect done with positions
+    
+    * uiv3 progress - add bg and logo
+    
+    * position OGLVC
+    
+    * fix oversampling toggle animation and position
+    
+    * move font files to binaryData
+    
+    * add custom font
+    
+    * fix leaking of fileLogger and texture
+    
+    * add settings menu assets
+    
+    * add settings button w/ popup
+    
+    * add settings text and close button
+    
+    * white gradient on waveform
+    
+    * add user manual (need new asset from designer)
+    
+    * OGL context initialization retry and ringbuffer logging
+    
+    * add latest assets 3-1-25 part 1
+    
+    * use gaussian blurred threshold line
+    
+    definitely improvement here but now too small
+    
+    * cleaned up unused assets, slider smooth now
+    
+    * Sprint5/auto bypass detection (#84)
+    
+    * bypass freezes waveform, but want to attenuate
+    
+    also it jitters. should just draw an image or something
+    
+    * zero out buffer, with fades
+    
+    * bypass -zero buffer with no fade
+    
+    * add rounded rect bg for bypass message
+    
+    * final bypass rect size
+    
+    * dim waveform when bypassed
+    
+    * successful bypass lfg
+    
+    * can repro issue
+    
+    * hilariously, calling repaint at the end of render actually works
+    
+    but it doubles the waveform speed. why is this?
+    
+    * text move with slider
+    
+    * waveform scaled correctly, need to update threshold control
+    
+    * scaled threshold control visual
+    
+    * Visualizer resized and moved
+    
+    * Resized text movement range (lfg!!)
+    
+    * placed all text
+    
+    * extend thresh and up buffer size
+    
+    * Sprint5/dennis edits (#88)
+    
+    * gain knobs bigger
+    
+    * switch label size and switch section spacing adjustments
+    
+    * visualizer extend and control panel dividing line
+    
+    need to make components so we can hide when viewing settings
+    
+    * hide divider when settings are shown
+    
+    * comment
+    
+    * viz too tall, fixed
+
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/Source/BinaryData/Font/MBF Origin.otf
+ClipperX/Source/BinaryData/Font/MBF Origin.ttf
+ClipperX/Source/BinaryData/Font/MBF Origin.woff
+ClipperX/Source/BinaryData/Threshold Line.png
+ClipperX/Source/BinaryData/ThresholdLine600_400.png
+ClipperX/Source/BinaryData/knob_small.png
+ClipperX/Source/BinaryData/knob_small_0064.png
+ClipperX/Source/BinaryData/switch_button off.png
+ClipperX/Source/BinaryData/switch_button on.png
+ClipperX/Source/BinaryData/v3Orange/Threshold Line orange.png
+ClipperX/Source/BinaryData/v3Orange/label_OFF_activated.png
+ClipperX/Source/BinaryData/v3Orange/label_OFF_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/label_ON_activated.png
+ClipperX/Source/BinaryData/v3Orange/label_ON_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/label_OVERSAMPLING.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_controls.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_main.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_overlay2.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_bg_settings2.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_button_CLOSE_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_button_settings.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_knob_filmstrip_v6.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_HARD_activated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_HARD_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_INPUT.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_MODE.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_OUTPUT.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SETTINGS_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SOFT_activated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_SOFT_deactivated.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_label_USERMANUAL_wIcon_highRes.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_logo.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_off.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_off.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_on.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_switch_button_on.svg
+ClipperX/Source/BinaryData/v3Orange/uiv3_threshold_line.png
+ClipperX/Source/BinaryData/v3Orange/uiv3_threshold_line_glow.png
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+ClipperX/Source/PluginProcessor.h
+ClipperX/Source/RingBuffer.h
+ClipperX/Source/SettingsOverlay.h
+
+commit 290f8f0c8be0c6ed34cea414a765f9bbf82a79b5
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-02-10
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-02-10
+
+    Sprint4a merge to develop (#74)
+    
+    * S4/optimizations (#72)
+    
+    * enable msaa
+    
+    * more optimization, init buffers outside of render call
+    
+    * use vectors for vertex data
+    
+    * batch draw calls and only DBG for debug build
+    
+    * use juce::OpenGLShaderProgram
+    
+    * added font files to proj
+    
+    * add logging from msaa-logging branch
+    
+    * S4 - texture for slider (#73)
+    
+    * enable msaa
+    
+    * use texture for threshold line
+    
+    * hide juce slider thumb
+
+ClipperX/Assets/Font/MBF Origin.otf
+ClipperX/Assets/Font/MBF Origin.ttf
+ClipperX/Assets/Font/MBF Origin.woff
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.h
+
+commit 50be5795bfa15b6e85f436fc7509217a9e54feb6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-08
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-01-08
+
+    Update main with latest, use it for builds (#58)
+    
+    * Barebones Juce clipper working (Projucer) (#11)
+    
+    * building boilerplate successfully (use juce develop branch)
+    
+    * basic hard clip working
+    
+    * soft/hard both working
+    
+    * Added soft clip options (#12)
+    
+    * add algo select dropdown (cubic not working)
+    
+    * fix starting gain of soft clip, hide algo select
+    
+    * added embellishment picker and 1db bump
+    
+    * Cubic shaper, Waveform Visualizer, APVTS, UI, Meters, Smoothing (#13)
+    
+    * apply crude hardcoded auto gain to -6db signal
+    
+    * added threshold control to cubic but need to smooth curve.
+    
+    * Waveshaper tut hardclip working
+    
+    * waveshaper tut cubic working
+    
+    * cubic clip w threshold
+    
+    * whoops i lied but now both clips working
+    
+    * both clippers working
+    
+    * gainbump is fine, comment out filter stuff for now
+    
+    * clipper working with embellishments for distro. added vumeter files
+    
+    * remove meter files from projucer
+    
+    * viator tutorial - viewer added
+    
+    * in/out waveform working
+    
+    * horizontal line threshold slider transform works
+    
+    * skew threshold slider based on midpoint but not exact
+    
+    * superimposed threshold slider on top of waveform
+    
+    * added smoothed threshold value
+    
+    * db scale working but audio only in left channel
+    
+    * hooked up Soft Clip toggle to APVTS
+    
+    * heck yeah we got a gain meter (ff_meters)
+    
+    * removed SimpleMeter & VUAnalysis again
+    
+    * builds wtih factor of 2, but not clipping signal
+    
+    * fixed issue, getting clipping with oversampling now, need to test
+    
+    * 16x oversampling working but for now have to manually change constructor, not for long
+    
+    * Oversampling selector is working, no label yet
+    
+    * got an input dial
+    
+    * oversampling slider there but still using strokePath instead of fillRect
+    
+    * added clipMode slider
+    
+    * added out gain knob
+    
+    * set up quality labels (cringe)
+    
+    * all knobs and labels there except threshold
+    
+    * color changing on mouse hover
+    
+    * changed slider to line up better (linear scale) but output still jumping over threshold
+    
+    * thresh extend whole window and output does not affect visual
+    
+    * revert colors back to normal
+    
+    * works pretty good - threshold is accurate
+    
+    * POST-OVERSAMPLING CLIP! (#37)
+    
+    * UI v2 changes merge to trunk (#38)
+    
+    * moving threshold text in progress not done
+    
+    * Made a big ol blank bg, added first filmstrip for input gain
+    
+    * added switch for clip mode, will make separate branch for toggling/clicking ability
+    
+    * added mode and placeholder for oversampling selector
+    
+    * vis window extended, threshold lined up, middle thumb removed
+    
+    * added png threshold line
+    
+    * oversampling labels placed
+    
+    * clean up for v2, no threshold text yet
+    
+    * comment out paintOverChildren
+    
+    * Latest V2 Shared with client (#39)
+    
+    * comment out paintOverChildren
+    
+    * add plugin state saving, up viz repaint rate
+    
+    * Threshold text and display V2 (linear amp) (#40)
+    
+    * comment out paintOverChildren
+    
+    * add plugin state saving, up viz repaint rate
+    
+    * label is moving with bar (affineTransform set up)
+    
+    * Extending slider local bounds works! Text above line
+    
+    * Remove UI "guides", value on far right
+    
+    * Issue dev 35 (#36)
+    
+    * moving threshold text in progress not done
+    
+    * correct value written, maybe need to optimize to perform conversion less frequently
+    
+    * remove "+" sign from value
+    
+    * direct commit #41 bc yolo
+    
+    * v0.3 update (#44)
+    
+    * added scale factor, controls scale ok, need to adjust visualiser / threshold control
+    
+    * text in relation to threshold line looks alright. "thumb" is the text and can be set relative to the threshold bar
+    
+    * most stuff is good but have an issue with visualisercomponent not showing anything
+    
+    * succesfullly resized to 600x400. for v0.3
+    
+    * V04 draw threshold in open gl (#57)
+    
+    * ported in new OGLVC! Need threshold on top tho but otherwise worksgit add .
+    
+    * threshold line draws with desired width, but only within waveform bounds
+    
+    * yay threshold line separate pass works
+    
+    * width decrease to 2.0
+    
+    * draw only on positive y-axis
+    
+    * move threshold text static above viz window
+
+.gitignore
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/BinaryData.cpp
+ClipperX/JuceLibraryCode/BinaryData.h
+ClipperX/JuceLibraryCode/BinaryData2.cpp
+ClipperX/JuceLibraryCode/JuceHeader.h
+ClipperX/JuceLibraryCode/JucePluginDefines.h
+ClipperX/JuceLibraryCode/include_juce_opengl.cpp
+ClipperX/JuceLibraryCode/include_juce_opengl.mm
+ClipperX/Source/BinaryData/Threshold Line.png
+ClipperX/Source/BinaryData/ThresholdLine600_400.png
+ClipperX/Source/BinaryData/knob_small.png
+ClipperX/Source/BinaryData/knob_small_0064.png
+ClipperX/Source/BinaryData/switch_button off.png
+ClipperX/Source/BinaryData/switch_button on.png
+ClipperX/Source/OpenGLVisualizerComponent.cpp
+ClipperX/Source/OpenGLVisualizerComponent.h
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+ClipperX/Source/PluginProcessor.h
+ClipperX/Source/RingBuffer.h
+ClipperX/Source/Waveshaper.h
+
+commit 2f7a0cba9e3fc43608bb668cf3e77e3394b4eb70
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-06-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2024-06-04
+
+    Update README.md
+
+README.md
+
+commit 31b441e2709c8301f4cc74c2dd48d1c539c05ac9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-06-04
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2024-06-04
+
+    Xcode UI flat arrangement (#18)
+    
+    * Barebones Juce clipper working (Projucer) (#11)
+    
+    * building boilerplate successfully (use juce develop branch)
+    
+    * basic hard clip working
+    
+    * soft/hard both working
+    
+    * Added soft clip options (#12)
+    
+    * add algo select dropdown (cubic not working)
+    
+    * fix starting gain of soft clip, hide algo select
+    
+    * added embellishment picker and 1db bump
+    
+    * Cubic shaper, Waveform Visualizer, APVTS, UI, Meters, Smoothing (#13)
+    
+    * apply crude hardcoded auto gain to -6db signal
+    
+    * added threshold control to cubic but need to smooth curve.
+    
+    * Waveshaper tut hardclip working
+    
+    * waveshaper tut cubic working
+    
+    * cubic clip w threshold
+    
+    * whoops i lied but now both clips working
+    
+    * both clippers working
+    
+    * gainbump is fine, comment out filter stuff for now
+    
+    * clipper working with embellishments for distro. added vumeter files
+    
+    * remove meter files from projucer
+    
+    * viator tutorial - viewer added
+    
+    * in/out waveform working
+    
+    * horizontal line threshold slider transform works
+    
+    * skew threshold slider based on midpoint but not exact
+    
+    * superimposed threshold slider on top of waveform
+    
+    * added smoothed threshold value
+    
+    * db scale working but audio only in left channel
+    
+    * hooked up Soft Clip toggle to APVTS
+    
+    * heck yeah we got a gain meter (ff_meters)
+    
+    * removed SimpleMeter & VUAnalysis again
+    
+    * builds wtih factor of 2, but not clipping signal
+    
+    * fixed issue, getting clipping with oversampling now, need to test
+    
+    * 16x oversampling working but for now have to manually change constructor, not for long
+    
+    * Oversampling selector is working, no label yet
+    
+    * got an input dial
+    
+    * oversampling slider there but still using strokePath instead of fillRect
+    
+    * added clipMode slider
+    
+    * added out gain knob
+    
+    * set up quality labels (cringe)
+    
+    * all knobs and labels there except threshold
+    
+    * color changing on mouse hover
+    
+    * changed slider to line up better (linear scale) but output still jumping over threshold
+    
+    * thresh extend whole window and output does not affect visual
+    
+    * revert colors back to normal
+
+.gitignore
+ClipperX/ClipperX.jucer
+ClipperX/JuceLibraryCode/JuceHeader.h
+ClipperX/JuceLibraryCode/JucePluginDefines.h
+ClipperX/JuceLibraryCode/ReadMe.txt
+ClipperX/JuceLibraryCode/include_ff_meters.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_basics.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_basics.mm
+ClipperX/JuceLibraryCode/include_juce_audio_devices.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_devices.mm
+ClipperX/JuceLibraryCode/include_juce_audio_formats.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_formats.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AAX.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AAX.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AAX_utils.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_ARA.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_AUv3.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_LV2.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_LV2.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_Unity.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_VST2.mm
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_plugin_client_VST3.mm
+ClipperX/JuceLibraryCode/include_juce_audio_processors.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_processors.mm
+ClipperX/JuceLibraryCode/include_juce_audio_processors_ara.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_processors_lv2_libs.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_utils.cpp
+ClipperX/JuceLibraryCode/include_juce_audio_utils.mm
+ClipperX/JuceLibraryCode/include_juce_core.cpp
+ClipperX/JuceLibraryCode/include_juce_core.mm
+ClipperX/JuceLibraryCode/include_juce_data_structures.cpp
+ClipperX/JuceLibraryCode/include_juce_data_structures.mm
+ClipperX/JuceLibraryCode/include_juce_dsp.cpp
+ClipperX/JuceLibraryCode/include_juce_dsp.mm
+ClipperX/JuceLibraryCode/include_juce_events.cpp
+ClipperX/JuceLibraryCode/include_juce_events.mm
+ClipperX/JuceLibraryCode/include_juce_graphics.cpp
+ClipperX/JuceLibraryCode/include_juce_graphics.mm
+ClipperX/JuceLibraryCode/include_juce_gui_basics.cpp
+ClipperX/JuceLibraryCode/include_juce_gui_basics.mm
+ClipperX/JuceLibraryCode/include_juce_gui_extra.cpp
+ClipperX/JuceLibraryCode/include_juce_gui_extra.mm
+ClipperX/Source/PluginEditor.cpp
+ClipperX/Source/PluginEditor.h
+ClipperX/Source/PluginProcessor.cpp
+ClipperX/Source/PluginProcessor.h
+ClipperX/Source/Waveshaper.cpp
+ClipperX/Source/Waveshaper.h
+ClipperX/Source/ff_meters/.gitignore
+ClipperX/Source/ff_meters/Doxyfile
+ClipperX/Source/ff_meters/LICENSE.md
+ClipperX/Source/ff_meters/LevelMeter/LevelMeter.cpp
+ClipperX/Source/ff_meters/LevelMeter/LevelMeter.h
+ClipperX/Source/ff_meters/LevelMeter/LevelMeterSource.h
+ClipperX/Source/ff_meters/LookAndFeel/LevelMeterLookAndFeel.h
+ClipperX/Source/ff_meters/LookAndFeel/LevelMeterLookAndFeelMethods.h
+ClipperX/Source/ff_meters/LookAndFeel/SoundFieldLookAndFeelMethods.h
+ClipperX/Source/ff_meters/README.md
+ClipperX/Source/ff_meters/Visualisers/OutlineBuffer.h
+ClipperX/Source/ff_meters/Visualisers/StereoFieldBuffer.h
+ClipperX/Source/ff_meters/Visualisers/StereoFieldComponent.h
+ClipperX/Source/ff_meters/ff_meters.cpp
+ClipperX/Source/ff_meters/ff_meters.h

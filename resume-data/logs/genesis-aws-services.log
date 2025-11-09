@@ -1,0 +1,2855 @@
+commit 8fb2ad5d5bbc6d79020885418c1e49299a730744
+Author:     Umesh Shrestha <stha.ums@gmail.com>
+AuthorDate: 2025-10-27
+Commit:     Umesh Shrestha <stha.ums@gmail.com>
+CommitDate: 2025-10-27
+
+    fix: update TikTok photo post API request structure
+    
+    - Add title truncation to 90 characters per TikTok API limit
+    - Restructure request body to match TikTok Photo Post API reference
+    - Remove description field (not used for photo posts)
+    - Set brand_organic_toggle default to true (matching Postiz)
+    - Reorder fields to match API documentation structure
+    - Add debug logging for photo URLs and request body
+
+content-publisher/helpers/tiktokApiHelper.js
+
+commit b8dc7f6844d2c9ea5e8fb80e50261d05e3705b23
+Author:     Umesh Shrestha <umesh@inicreatechnologies.com>
+AuthorDate: 2025-10-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-10-26
+
+    feat: implement TikTok post settings and improve publishing reliability (#70)
+    
+    - Add TikTok settings support (privacy level, comment/duet/stitch controls, brand content)
+    - Transform DB field names (*_disabled) to TikTok API format (disable_*) during publishing
+    - Add 30-second timeouts to all TikTok API calls for better error handling
+    - Implement 24-hour caching for TikTok creator info to reduce API calls
+    - Enable retry functionality for failed posts (allow re-publishing)
+    - Skip already-published platforms during retry attempts
+    - Improve error handling with non-critical EventBridge cleanup
+    - Add flexible metrics storage using Schema.Types.Mixed
+    - Add comprehensive debug logging for TikTok settings
+    
+    Co-authored-by: Umesh Shrestha <stha.ums@gmail.com>
+
+content-publisher/helpers/tiktokApiHelper.js
+content-publisher/models/ScheduledPost.js
+content-publisher/models/SocialTokens.js
+content-publisher/publishContent.js
+content-publisher/publishers/TikTokPublisher.ts
+
+commit 7d9d35aa2bd5a69aa59b2bb922f2f9ce2af7827e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-14
+
+    chore(lambda): rename branch to prod
+
+.github/workflows/prod.yaml
+
+commit e77d621039353958c41f24b01ce38f6d3fde2208
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-14
+
+    chore(lambda): add prod weekly digest and content publisher
+
+content-publisher/README.md
+weekly-digest-email/AI_SUMMARY_SETUP.md
+
+commit 6d6a1e518eb94c5e1ac9c9d34fcf527ba0b253d1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-10-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-10-14
+
+    chore(lambda): CICD for prod lambdas
+
+.github/workflows/prod.yaml
+
+commit 1784a7423ecbd8b3c7fec893c4d64e3fd31f64d0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-04
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-04
+
+    deprecate upcomingTasksDigest email in favor of new combined weekly digest rollup
+
+.github/workflows/develop.yaml
+.github/workflows/stage.yaml
+chartmetrics-daily-scheduler/constants/email.consts.js
+instagram-daily-scheduler/constants/email.consts.js
+overdueTaskTest/helpers/artistHealthCheck.js
+overdueTaskTest/helpers/email/templates/upcomingTasks.template.js
+overdueTaskTest/helpers/emailHelper.js
+upcoming-tasks-digest/db.js
+upcoming-tasks-digest/helpers/agent/notificationContentService.js
+upcoming-tasks-digest/helpers/dateUtils.js
+upcoming-tasks-digest/helpers/email/templates/forgotPassword.template.js
+upcoming-tasks-digest/helpers/email/templates/invitation.template.js
+upcoming-tasks-digest/helpers/email/templates/onboarding.template.js
+upcoming-tasks-digest/helpers/email/templates/otp.template.js
+upcoming-tasks-digest/helpers/email/templates/overdueTasks.template.js
+upcoming-tasks-digest/helpers/email/templates/upcomingTasks.template.js
+upcoming-tasks-digest/helpers/emailHelper.js
+upcoming-tasks-digest/helpers/notificationService.js
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+upcoming-tasks-digest/models/Notification.js
+upcoming-tasks-digest/models/Task.js
+upcoming-tasks-digest/models/User.js
+upcoming-tasks-digest/package-lock.json
+upcoming-tasks-digest/package.json
+upcoming-tasks-digest/utils/AppError.js
+upcoming-tasks-digest/utils/catchAsync.js
+upcoming-tasks-digest/utils/httpStatusCode.js
+
+commit 3b901f5eacef647838bc4f2a8580d666234eb6d7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-19
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-19
+
+    make scheduledTime required field for easy date range filtering, store IG CDN url instead of saving in s3
+
+content-publisher/models/MediaAsset.js
+content-publisher/models/ScheduledPost.js
+instagram-daily-scheduler/helpers/mediaAssetService.js
+instagram-daily-scheduler/helpers/scheduledPostHelper.js
+
+commit 3ab39a340ab93369514d082bae8203a4a8bb8f6f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-07
+
+    ig post insights carousel support
+
+instagram-daily-scheduler/IMPLEMENTATION_SUMMARY.md
+instagram-daily-scheduler/SCHEDULED_POST_METRICS.md
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/mediaAssetService.js
+instagram-daily-scheduler/helpers/scheduledPostHelper.js
+
+commit 65651db8b1cb83e0011c839cbddf36107c472df3
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-07
+
+    bump ig post query date range to include today
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 956338cba14d1f877e00b119b0fe1018721b9e1a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-07
+
+    tested with internal and external pick up posts correclty
+
+content-publisher/models/ScheduledPost.js
+instagram-daily-scheduler/IMPLEMENTATION_SUMMARY.md
+instagram-daily-scheduler/SCHEDULED_POST_METRICS.md
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/mediaAssetService.js
+instagram-daily-scheduler/helpers/scheduledPostHelper.js
+instagram-daily-scheduler/models/ScheduledPost.js
+instagram-daily-scheduler/test-scheduled-post.js
+
+commit 03674761309f992e2501f2efe6eb48939e8a22ea
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-07
+
+    tested up through ig media api request internal
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/scheduledPostHelper.js
+
+commit 8d0b98ff8df11ddd0f98176f6de75f7f2ff2dff7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-07
+
+    init insights, need to test with artiuser
+
+content-publisher/models/ScheduledPost.js
+instagram-daily-scheduler/IMPLEMENTATION_SUMMARY.md
+instagram-daily-scheduler/SCHEDULED_POST_METRICS.md
+instagram-daily-scheduler/helpers/mediaAssetService.js
+instagram-daily-scheduler/helpers/scheduledPostHelper.js
+instagram-daily-scheduler/index.js
+instagram-daily-scheduler/models/MediaAsset.js
+instagram-daily-scheduler/models/ScheduledPost.js
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+instagram-daily-scheduler/test-scheduled-post.js
+
+commit a9771101394959008aebfeaaa35d91ed34e9f0cd
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-06
+
+    deploy lambdas staging
+
+chartmetrics-daily-scheduler/index.js
+instagram-daily-scheduler/index.js
+instagram-sqs-trigger-lambda/index.js
+notification-resolver/index.mjs
+overdueTaskTest/index.js
+spotify-sqs-trigger-lambda/index.js
+upcoming-tasks-digest/index.js
+
+commit d20a2b317364906221e33ed7f08d8a87c9a48846
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-06
+
+    overdueTask fn fix spelling
+
+.github/workflows/stage.yaml
+
+commit a0db4c6821abf881818bace5e5554cfa95950223
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-06
+
+    redeploy all lambdas with node_modules
+
+instagram-daily-scheduler/index.js
+instagram-sqs-trigger-lambda/index.js
+notification-resolver/index.mjs
+overdueTaskTest/index.js
+spotify-sqs-trigger-lambda/index.js
+upcoming-tasks-digest/index.js
+
+commit d0780e5055a61b7471be91df032413613ffd6c2d
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-06
+
+    test deploy
+
+chartmetrics-daily-scheduler/index.js
+
+commit 61ca90cf13f4c88dc12c9f59758f5f9ab7c60cc6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-06
+
+    include node_modules in deployment
+
+.github/workflows/develop.yaml
+.github/workflows/stage.yaml
+
+commit 42142b188eebb832a195a774a421dc68ea0d8207
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-05
+
+    upd branch name staging
+
+.github/workflows/stage.yaml
+
+commit 70d57431abe6f42bafbe8486d07102c85f2936a8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-05
+
+    update stage cicd script
+
+.github/workflows/stage.yaml
+
+commit fa77618b601732d5e15b9ca3e65ee6b4b535bc8b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-05
+
+    notes schema fix
+
+content-publisher/models/ScheduledPost.js
+
+commit d2cc26a3b8c0604f7559fd25e8275cfec6b5864f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-05
+
+    creatorInfo got left out
+
+content-publisher/models/ScheduledPost.js
+
+commit f90e4cb2e13e2ab57e266303082a593a095d1a55
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-05
+
+    scheduledPost schema changes
+
+content-publisher/models/ScheduledPost.js
+
+commit 8f24ce1e620985722898224547bb458ecd9773dc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-31
+
+    clean up eventbridge schedules after publishing success
+
+content-publisher/models/ScheduledPost.js
+content-publisher/package-lock.json
+content-publisher/package.json
+content-publisher/publishContent.js
+
+commit 4a26ccdf3b1c0a142664d35aefc885ce550c9109
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-31
+
+    attempt to fix deployment aws lambda version creation
+
+.github/workflows/develop.yaml
+
+commit d9b477b44cd201156cea9337a5918ae0aff6eafc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-31
+
+    tiktok photo support multiple
+
+content-publisher/helpers/tiktokApiHelper.d.ts
+content-publisher/helpers/tiktokApiHelper.js
+
+commit 8b11480e1d46bc98840d5b25f2c3e2ad760bbff1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-31
+
+    tiktok publish and status check working
+
+content-publisher/helpers/tiktokApiHelper.d.ts
+content-publisher/helpers/tiktokApiHelper.js
+
+commit a0cdd5c80dae92e37c974ac16312c5278a904e55
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-31
+
+    posted
+
+content-publisher/helpers/tiktokApiHelper.d.ts
+content-publisher/helpers/tiktokApiHelper.js
+content-publisher/publishers/TikTokPublisher.ts
+
+commit ad95ef56baf1966fa4556fc6992f055303925b97
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    tiktok hitting endpoint but bad scope
+
+content-publisher/helpers/tiktokApiHelper.d.ts
+content-publisher/helpers/tiktokApiHelper.js
+content-publisher/models/ScheduledPost.js
+content-publisher/models/SocialTokens.js
+content-publisher/publishers/TikTokPublisher.ts
+
+commit 3fb93115ccef5ea4f13d814611394fd91bc58b81
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    deployment fix
+
+content-publisher/publishContent.js
+
+commit f27ce57407ce61ebba7f5f2259fa0ae5b7fbda44
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    update deploy script
+
+content-publisher/index.ts
+content-publisher/package.json
+content-publisher/tsconfig.json
+
+commit 188fdf3154228eb5f59a4ccc1076d1ffc9be61f7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    update package.json
+
+content-publisher/package.json
+
+commit 0b02c457e5af28b4fd8dfc281a8a583245aa9e0e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    content publish lambda handles job from eventbridge
+
+content-publisher/index.js
+content-publisher/publishContent.js
+content-publisher/test-local.ts
+
+commit 78ad37a2aa252d2b05bbcbcae262db65c3001567
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-30
+
+    Add carousel support instagram
+
+content-publisher/helpers/instagramApiHelper.d.ts
+content-publisher/helpers/instagramApiHelper.js
+content-publisher/models/ScheduledPost.js
+content-publisher/publishContent.js
+content-publisher/publishers/InstagramPublisher.ts
+
+commit 3c06dc984cdf7ce2091e83107b1bd01eb8a489dd
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-29
+
+    publish ig reel works
+
+content-publisher/helpers/instagramApiHelper.js
+content-publisher/models/MediaAsset.js
+content-publisher/publishers/InstagramPublisher.ts
+
+commit d82c3fb606ec2cbe9d9a12cbc0e1ac33a2286762
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-29
+
+    set up for running every 5 minutes (short term setup)
+
+content-publisher/publishContent.js
+
+commit a9bbc4a8f3097419f98486e856bff769dd3c6594
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-29
+
+    publishing IG is working
+
+content-publisher/helpers/instagramApiHelper.d.ts
+content-publisher/helpers/instagramApiHelper.js
+content-publisher/models/ScheduledPost.js
+content-publisher/publishContent.js
+content-publisher/publishers/InstagramPublisher.ts
+content-publisher/publishers/PlatformPublisher.ts
+content-publisher/publishers/TikTokPublisher.ts
+
+commit 0fb576d4ee8e5543f6bfec3f9f6d11f5bf8b867e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-29
+
+    got a IG container from /media finally
+
+content-publisher/README.md
+content-publisher/helpers/instagramApiHelper.d.ts
+content-publisher/helpers/instagramApiHelper.js
+content-publisher/models/MediaAsset.js
+content-publisher/models/ScheduledPost.js
+content-publisher/models/Social.js
+content-publisher/models/SocialTokens.js
+content-publisher/package-lock.json
+content-publisher/package.json
+content-publisher/publishContent.js
+content-publisher/publishers/InstagramPublisher.ts
+
+commit 4cc200cebad6b1e5c97ea0cb634233ba025e4a4f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-25
+
+    batch posts scheduled for current time and invoke platform specific publish
+
+content-publisher/README.md
+content-publisher/db.js
+content-publisher/index.d.ts
+content-publisher/index.js
+content-publisher/models/ScheduledPost.js
+content-publisher/models/User.js
+content-publisher/package-lock.json
+content-publisher/package.json
+content-publisher/publishContent.js
+content-publisher/publishers/InstagramPublisher.ts
+content-publisher/publishers/PlatformPublisher.ts
+content-publisher/publishers/TikTokPublisher.ts
+content-publisher/publishers/index.ts
+content-publisher/test-local.ts
+content-publisher/tsconfig.json
+
+commit c9462c3e01da587aa468963c4530ebd188cbcdae
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-25
+
+    content publisher boilerplate
+
+.github/workflows/develop.yaml
+content-publisher/README.md
+content-publisher/index.js
+content-publisher/package.json
+content-publisher/test-local.ts
+content-publisher/tsconfig.json
+
+commit 5fdc3dba72766720beaa2f7b8151b3dbadd19eec
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-25
+
+    change sender name
+
+weekly-digest-email/index.js
+
+commit e0cd931e687300d2eb8c176e0bd30a768e535c7e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-25
+
+    deployment fix
+
+.github/workflows/develop.yaml
+
+commit 4ceed777f592a76348edc851be3d86848802b6cf
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-25
+
+    perform ts build step in deployment script
+
+.github/workflows/develop.yaml
+weekly-digest-email/index.js
+weekly-digest-email/package.json
+
+commit 559a4eca6b1333fb6ca9863db7ac9728735878b4
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-24
+
+    upd readme
+
+README.md
+
+commit 9b629872a1450a67d0e6583834b1a1bad32598ed
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-24
+
+    update readme
+
+README.md
+
+commit 39365ac8bfa2d6e84ae0a5906682dc8eb2c0f146
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-24
+
+    update cicd ymls
+
+.github/workflows/develop.yaml
+.github/workflows/stage.yaml
+
+commit 5ba803020447ef89cea69e3a2e0547d84314906a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-24
+
+    badge viral track fix, write key when awarding spotify badges
+
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+chartmetrics-daily-scheduler/models/User.js
+
+commit 2971eff6ba0dad4d7e9267564ee88cd4123cccf8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-23
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-23
+
+    couple of spotify badges
+
+chartmetrics-daily-scheduler/gamification/sp-streams/consistent-streamer.js
+chartmetrics-daily-scheduler/gamification/sp-streams/decibel-dominator.js
+chartmetrics-daily-scheduler/gamification/sp-streams/track-consistency.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 1d9af4a51549dfd5628236317e306b69d9e8eca4
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-23
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-23
+
+    consistent climber
+
+chartmetrics-daily-scheduler/gamification/sp-streams/consistent-climber.js
+
+commit ca8d04dab91eacb01f6ce1bf20bd6e667d981dd3
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-23
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-23
+
+    badge 5-03 Multi-Track Momentum
+
+chartmetrics-daily-scheduler/gamification/sp-streams/multi-track-momentum.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit bc44a40b436e35269b45be958ada1fc1cad2a905
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-23
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-23
+
+    engagement badges should measure time sustained as progress
+
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-booster.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-initiate.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-legend.js
+
+commit e287ca5a2ea2ded53b28c4f7a1c0753bf3fd8473
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-22
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-22
+
+    add yaml for deployment not tested
+
+.github/workflows/lambda_deployment.yaml
+
+commit a2b40908fc3f52ecd15b1d5d2306f5de6970fcb6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-22
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-22
+
+    Badge progress: reset to 0 for broken streaks
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/sustained-growth.js
+chartmetrics-daily-scheduler/gamification/sp-releases/fast-follow.js
+chartmetrics-daily-scheduler/gamification/sp-releases/half-year-hustle.js
+chartmetrics-daily-scheduler/gamification/sp-releases/monthly-magic.js
+chartmetrics-daily-scheduler/gamification/sp-releases/on-schedule-overdrive.js
+chartmetrics-daily-scheduler/gamification/sp-releases/timely-trickler.js
+chartmetrics-daily-scheduler/gamification/sp-releases/track-marathoner.js
+chartmetrics-daily-scheduler/gamification/sp-releases/yearly-overachiever.js
+chartmetrics-daily-scheduler/gamification/sp-streams/listener-magnet.js
+chartmetrics-daily-scheduler/gamification/sp-streams/multi-hit-champion.js
+chartmetrics-daily-scheduler/gamification/sp-streams/rising-hit.js
+chartmetrics-daily-scheduler/gamification/sp-streams/streaming-surge.js
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+instagram-daily-scheduler/gamification/ig-engagement/fan-connection-pro.js
+instagram-daily-scheduler/gamification/ig-engagement/viral-engagement.js
+instagram-daily-scheduler/gamification/ig-posts/daily-conqueror.js
+instagram-daily-scheduler/gamification/ig-posts/fortnight-fervor.js
+instagram-daily-scheduler/gamification/ig-posts/seven-day-surge.js
+instagram-daily-scheduler/gamification/ig-posts/social-surge.js
+instagram-daily-scheduler/gamification/ig-posts/thirty-day-streak.js
+
+commit b765c77013f7fc1078de212cd2dcf91f1a40bc17
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-17
+
+    spotify metrics drop notification
+
+chartmetrics-daily-scheduler/constants/email.consts.js
+chartmetrics-daily-scheduler/helpers/email/templates/metricsDrop.template.js
+chartmetrics-daily-scheduler/helpers/notificationService.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+
+commit 57c114830d1e8720e9d53020a94a2c1f6a0264fe
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-17
+
+    spotify badge notifications and some badge logic fixes
+
+chartmetrics-daily-scheduler/constants/email.consts.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/helpers/calculateDifferencePercentageHelper.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/index.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/sustained-growth.js
+chartmetrics-daily-scheduler/gamification/sp-releases/fast-follow.js
+chartmetrics-daily-scheduler/gamification/sp-releases/half-year-hustle.js
+chartmetrics-daily-scheduler/gamification/sp-releases/monthly-magic.js
+chartmetrics-daily-scheduler/gamification/sp-releases/on-schedule-overdrive.js
+chartmetrics-daily-scheduler/gamification/sp-releases/release-rookie.js
+chartmetrics-daily-scheduler/gamification/sp-releases/timely-trickler.js
+chartmetrics-daily-scheduler/gamification/sp-releases/track-marathoner.js
+chartmetrics-daily-scheduler/gamification/sp-releases/yearly-overachiever.js
+chartmetrics-daily-scheduler/gamification/sp-releases/zero-delay-streak.js
+chartmetrics-daily-scheduler/gamification/sp-streams/first-hit.js
+chartmetrics-daily-scheduler/gamification/sp-streams/listener-magnet.js
+chartmetrics-daily-scheduler/gamification/sp-streams/multi-hit-champion.js
+chartmetrics-daily-scheduler/gamification/sp-streams/platinum-performer.js
+chartmetrics-daily-scheduler/gamification/sp-streams/rising-hit.js
+chartmetrics-daily-scheduler/gamification/sp-streams/streaming-surge.js
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+chartmetrics-daily-scheduler/helpers/agent/notificationContentService.js
+chartmetrics-daily-scheduler/helpers/email/emailHelper.js
+chartmetrics-daily-scheduler/helpers/email/templates/awardBadgev2.template.js
+chartmetrics-daily-scheduler/helpers/notification/appSyncNotificationHelper.js
+chartmetrics-daily-scheduler/helpers/notificationService.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+chartmetrics-daily-scheduler/index.js
+chartmetrics-daily-scheduler/models/Notification.js
+chartmetrics-daily-scheduler/package-lock.json
+chartmetrics-daily-scheduler/package.json
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+overdueTaskTest/helpers/artistHealthCheck.js
+
+commit 04b30be99c8b2f0f8df8f3b267917f662a29dd6c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-17
+
+    full notifications for lambdas -upcoming & overdue tasks & instagram daily (part 1)
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+instagram-daily-scheduler/constants/email.consts.js
+instagram-daily-scheduler/helpers/agent/notificationContentService.js
+instagram-daily-scheduler/helpers/email/templates/awardBadgev2.template.js
+instagram-daily-scheduler/helpers/emailHelper.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/helpers/notification/appSyncNotificationHelper.js
+instagram-daily-scheduler/helpers/notificationService.js
+instagram-daily-scheduler/models/Notification.js
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+overdueTaskTest/helpers/artistHealthCheck.js
+overdueTaskTest/models/Notification.js
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+upcoming-tasks-digest/models/Notification.js
+
+commit ffeea432fe5f1d618834c5eaf156b416016b4cf0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-11
+
+    add logging of ai response
+
+overdueTaskTest/helpers/agent/notificationContentService.js
+
+commit 9926d10077cfc932a6bd78c98acecfbfa1da8a37
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-11
+
+    remove test email for dev push
+
+weekly-digest-email/index.js
+
+commit 60ca1a79bde8342cb71ab789a6fc4b33c6c57707
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-11
+
+    test passed with deployed ai service dev - test email only
+
+weekly-digest-email/agent/notificationContentService.js
+weekly-digest-email/aggregators/getAISummary.ts
+weekly-digest-email/db.js
+weekly-digest-email/index.js
+weekly-digest-email/package.json
+
+commit b1be355c2c1751b1f3b00617dcc8c978a770ca98
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-09
+
+    add png badges, pass user object
+
+weekly-digest-email/AI_SUMMARY_SETUP.md
+weekly-digest-email/aggregators/getAISummary.ts
+weekly-digest-email/aggregators/getRecentBadges.ts
+weekly-digest-email/aggregators/getUpcomingBadges.ts
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/index.js
+
+commit c75a8c0acc908ffadf6a2e316d190438acffad61
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-09
+
+    add png icon option for badges in email
+
+weekly-digest-email/models/Badge.ts
+
+commit 8984eec698418cb33252d70273fa00736e76ab1d
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-09
+
+    arti weekly digest working locally
+
+weekly-digest-email/AI_SUMMARY_SETUP.md
+weekly-digest-email/agent/notificationContentService.js
+weekly-digest-email/aggregators/getAISummary.ts
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit c5d4184059c035bb0793c3e4c754292bd5944eb5
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    show upcoming tasks on horizon in table and task count as well
+
+weekly-digest-email/templateBuilder.ts
+
+commit 399450dbae192fd9f8ac2731f8f3f83a0e42cd9f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    remove test email
+
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+
+commit a8204bae93e2140b2560fc240834ce800ee98576
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    arti notification - upcoming tasks
+
+upcoming-tasks-digest/helpers/agent/notificationContentService.js
+upcoming-tasks-digest/helpers/emailHelper.js
+upcoming-tasks-digest/helpers/notificationService.js
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+upcoming-tasks-digest/models/Notification.js
+upcoming-tasks-digest/package-lock.json
+upcoming-tasks-digest/package.json
+
+commit 4ca607f9ccb5f78c3c1187b754efc36b9a787327
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    add test script to all functions that don't take an input event (non SQS)
+
+chartmetrics-daily-scheduler/package.json
+instagram-daily-scheduler/package.json
+upcoming-tasks-digest/package.json
+
+commit 07e1d1bb420d8e1a906ba1cd2a80ababadb4e12b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    arti notification - overdue tasks - working locally & add npm test script
+
+overdueTaskTest/helpers/agent/notificationContentService.js
+overdueTaskTest/helpers/artistHealthCheck.js
+overdueTaskTest/helpers/emailHelper.js
+overdueTaskTest/helpers/notificationService.js
+overdueTaskTest/models/Notification.js
+overdueTaskTest/package-lock.json
+overdueTaskTest/package.json
+
+commit 8791994ff1347905ff7fd4c77c6e561f84e27c57
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-07
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-07
+
+    changes for deploy to AWS, compile ts to js
+
+README.md
+weekly-digest-email/aggregators/getLevelProgress.ts
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/aggregators/getRecentBadges.ts
+weekly-digest-email/aggregators/getUpcomingBadges.ts
+weekly-digest-email/aggregators/getUpcomingTasks.ts
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/helpers/levelProgress/instagramPostsHelper.js
+weekly-digest-email/helpers/levelProgress/levelThreeProgressHelper.js
+weekly-digest-email/helpers/levelProgress/levelTwoProgressHelper.js
+weekly-digest-email/helpers/levelProgress/spotifyReleasesHelper.js
+weekly-digest-email/index.js
+weekly-digest-email/models/Project.ts
+weekly-digest-email/models/Task.ts
+weekly-digest-email/models/index.ts
+weekly-digest-email/package.json
+weekly-digest-email/templateBuilder.ts
+weekly-digest-email/test-compiled.js
+
+commit f16e47bd7b775db0a0774a5aa59716ed0095288b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-04
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-04
+
+    remove test user from weekly digest
+
+weekly-digest-email/index.js
+
+commit 68a946314e3e2e37cfcffffbd5bdb3c97e42e2ba
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-02
+
+    small template fixes, button URLs, week number
+
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 2ac223fe3ba5111c18e2d9adaf6bc851b9922a23
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-02
+
+    upcoming badges in digest
+
+weekly-digest-email/aggregators/getRecentBadges.ts
+weekly-digest-email/aggregators/getUpcomingBadges.ts
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/models/BadgeProgress.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 5acdf8054249d407b88a2f3cb4632ac33e347995
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    skip if no biz account id
+
+instagram-daily-scheduler/index.js
+
+commit ddf21bc40261f9b2fae2a2c8c5a47685dfbc707a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    interaction improver fix
+
+instagram-daily-scheduler/gamification/ig-engagement/interaction-improver.js
+
+commit ecf561d02680667961c6457b68ba0f3883846aae
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    group 4 ig follower badges progress
+
+instagram-daily-scheduler/gamification/ig-followers/audience-accelerator.js
+instagram-daily-scheduler/gamification/ig-followers/audience-ascender.js
+instagram-daily-scheduler/gamification/ig-followers/cultural-icon.js
+instagram-daily-scheduler/gamification/ig-followers/epic-expansion.js
+instagram-daily-scheduler/gamification/ig-followers/exponential-expander.js
+instagram-daily-scheduler/gamification/ig-followers/follower-foundation.js
+instagram-daily-scheduler/gamification/ig-followers/follower-surge.js
+instagram-daily-scheduler/gamification/ig-followers/growth-starter.js
+instagram-daily-scheduler/gamification/ig-followers/legendary-growth.js
+instagram-daily-scheduler/gamification/ig-followers/momentum-builder.js
+instagram-daily-scheduler/gamification/ig-followers/rapid-surge.js
+instagram-daily-scheduler/gamification/ig-followers/social-superstar.js
+instagram-daily-scheduler/gamification/ig-followers/steady-climber.js
+instagram-daily-scheduler/gamification/ig-followers/ultimate-amplifier.js
+instagram-daily-scheduler/gamification/ig-followers/viral-visionary.js
+
+commit 549dab56a54d30d537b3988aa7e4ad0c561ed3e8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    group4 engagement badge progress
+
+instagram-daily-scheduler/gamification/ig-engagement/community-catalyst.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-accelerator.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-booster.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-initiate.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-legend.js
+instagram-daily-scheduler/gamification/ig-engagement/fan-connection-pro.js
+instagram-daily-scheduler/gamification/ig-engagement/interaction-improver.js
+instagram-daily-scheduler/gamification/ig-engagement/viral-engagement.js
+
+commit f3248a797227628f2747bc9b5ae5af8a57fb4f66
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    group 4 instagram posts badges
+
+instagram-daily-scheduler/gamification/ig-posts/content-conqueror.js
+instagram-daily-scheduler/gamification/ig-posts/content-starter.js
+instagram-daily-scheduler/gamification/ig-posts/daily-conqueror.js
+instagram-daily-scheduler/gamification/ig-posts/daily-double.js
+instagram-daily-scheduler/gamification/ig-posts/digital-dynamo.js
+instagram-daily-scheduler/gamification/ig-posts/first-post.js
+instagram-daily-scheduler/gamification/ig-posts/fortnight-fervor.js
+instagram-daily-scheduler/gamification/ig-posts/media-maven.js
+instagram-daily-scheduler/gamification/ig-posts/mega-poster.js
+instagram-daily-scheduler/gamification/ig-posts/post-pro.js
+instagram-daily-scheduler/gamification/ig-posts/seven-day-surge.js
+instagram-daily-scheduler/gamification/ig-posts/social-surge.js
+instagram-daily-scheduler/gamification/ig-posts/thirty-day-streak.js
+instagram-daily-scheduler/models/BadgeProgress.js
+
+commit 2d1527d44019a59a48392a66087818ca1e332fca
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-07-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    finish group 5 releases badges
+
+chartmetrics-daily-scheduler/gamification/sp-releases/fast-follow.js
+chartmetrics-daily-scheduler/gamification/sp-releases/half-year-hustle.js
+chartmetrics-daily-scheduler/gamification/sp-releases/monthly-magic.js
+chartmetrics-daily-scheduler/gamification/sp-releases/on-schedule-overdrive.js
+chartmetrics-daily-scheduler/gamification/sp-releases/release-rookie.js
+chartmetrics-daily-scheduler/gamification/sp-releases/timely-trickler.js
+chartmetrics-daily-scheduler/gamification/sp-releases/track-marathoner.js
+chartmetrics-daily-scheduler/gamification/sp-releases/yearly-overachiever.js
+chartmetrics-daily-scheduler/gamification/sp-releases/zero-delay-streak.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 141af50a586b84c65094626a06dfb62d11ef9707
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    monthly listeners badge progress
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/index.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/sustained-growth.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 7c75ee2a284335e5dcd8b7c06a4c66e04536c85a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-07-01
+
+    group 5 streaming badges progress
+
+chartmetrics-daily-scheduler/gamification/sp-streams/first-hit.js
+chartmetrics-daily-scheduler/gamification/sp-streams/listener-magnet.js
+chartmetrics-daily-scheduler/gamification/sp-streams/multi-hit-champion.js
+chartmetrics-daily-scheduler/gamification/sp-streams/platinum-performer.js
+chartmetrics-daily-scheduler/gamification/sp-streams/rising-hit.js
+chartmetrics-daily-scheduler/gamification/sp-streams/streaming-surge.js
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+chartmetrics-daily-scheduler/models/BadgeProgress.js
+
+commit cc9bc0927497c53503cd77c1b8c29e1fd64768fe
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-23
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-23
+
+    handle error when cm record does not point to a valid user
+
+chartmetrics-daily-scheduler/index.js
+
+commit 62ebae8f5dd538bf75615b708703593e530c1f2e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-12
+
+    finish level progress module
+
+weekly-digest-email/aggregators/getLevelProgress.ts
+weekly-digest-email/constants/levelThreshold.js
+weekly-digest-email/helpers/levelProgress/instagramPostsHelper.js
+weekly-digest-email/helpers/levelProgress/levelThreeProgressHelper.js
+weekly-digest-email/helpers/levelProgress/levelTwoProgressHelper.js
+weekly-digest-email/helpers/levelProgress/spotifyReleasesHelper.js
+weekly-digest-email/index.js
+weekly-digest-email/models/ArtistGoals.ts
+weekly-digest-email/models/InstagramMetrics.ts
+weekly-digest-email/models/Social.ts
+weekly-digest-email/models/SpotifyMetrics.ts
+weekly-digest-email/models/index.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit df9a8689c923d99ea3d8f3b790135e996bf59ccc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-10
+
+    kpi and l2 progress helpers updated from https://github.com/Genesis-Technologies-LLC/genesis-web/pull/284
+
+weekly-digest-email/helpers/kpis/kpiHelper.js
+weekly-digest-email/helpers/levelProgress/levelTwoProgressHelper.js
+
+commit 9fb127a76118bcde05637eca6af3ca5afbd71d65
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-10
+
+    add new demographics fetching to daily-scheduler
+
+instagram-daily-scheduler/helpers/saveOverViewHelper.js
+instagram-daily-scheduler/models/InstagramMetrics.js
+
+commit 6191d4f4f158b51a3c6e236e3e3200f8624a9021
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-10
+
+    update daily-scheduler to match sqs but need demographics
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit fc96e97be3784ce24765e26d6cdeab99f7e48200
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-09
+
+    uncomment for prod
+
+instagram-sqs-trigger-lambda/index.js
+
+commit 00a01ce1ee6151e1d872d6b3785cdcd432dd8e6e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-09
+
+    remove follows and unfollows field
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 25246932a27ddd23059e4cc10230314ec21eebd3
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-06
+
+    engagement fix
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit e9613c359cf8668ea3f9fc72afcc35051d859f32
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-06
+
+    add new IG demographics fetching to sqs pull
+
+instagram-daily-scheduler/models/InstagramMetrics.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/index.js
+instagram-sqs-trigger-lambda/models/InstagramMetrics.js
+
+commit 5ffea71799e741f8610b4efc1444bf60c38cf758
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    finalize for deploy
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit e9e4c2a0a8c85b1d3324160cb08461c9921501e1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    daily scheduler ran successfully
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 215f764d894eed341f58f147b56dd65a96430f54
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    reset index from testing sqs
+
+instagram-sqs-trigger-lambda/index.js
+
+commit aa427ba074e434a9b1ee28ecd8242a13cc41815b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    Update IG apis. ran successfully
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/index.js
+
+commit 55fbbb0e814ad2693d77668872e03ea7b593c64b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-05
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-05
+
+    started on level progress email module
+
+weekly-digest-email/aggregators/getLevelProgress.ts
+weekly-digest-email/helpers/getTargetAggressionHelper.js
+weekly-digest-email/helpers/kpis/kpiHelper.js
+weekly-digest-email/helpers/levelProgress/instagramPostsHelper.js
+weekly-digest-email/helpers/levelProgress/levelThreeProgressHelper.js
+weekly-digest-email/helpers/levelProgress/levelTwoProgressHelper.js
+weekly-digest-email/helpers/levelProgress/spotifyReleasesHelper.js
+weekly-digest-email/models/User.ts
+
+commit 44e2499221f5b61ab978162f041ce996a2438840
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-04
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-04
+
+    add recent earned badges module
+
+weekly-digest-email/aggregators/getRecentBadges.ts
+weekly-digest-email/aggregators/getUpcomingTasks.ts
+weekly-digest-email/models/Badge.ts
+weekly-digest-email/models/index.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 8888fa04e6f7481ac6a2635a8f2d6b3ba5efcf6f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-03
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-03
+
+    add upcoming tasks + fix date tz shifting
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/aggregators/getUpcomingTasks.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 211697d6d955a302f4b34fbd48755965bc33adb0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-03
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-03
+
+    template edits reduce columns in table
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 52df4d73181a7e276e09bb2147301c6c07f24a79
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    project populate success
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/models/index.ts
+
+commit ed319a40a6e6bfbe3a504b04c60218cafc0afd3e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    problems populating project
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/db.js
+weekly-digest-email/models/Project.ts
+
+commit c09dae139c62a9b550890b7e99ae0e7a5b262abf
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    basic table styling, task priority
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 5a42eac996bb7306c6fe5ec50e28ea627eb7cadd
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    add upcoming tasks, summary specific for each module
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/aggregators/getUpcomingTasks.js
+weekly-digest-email/aggregators/getUpcomingTasks.ts
+weekly-digest-email/buildPayload.ts
+
+commit dfe975c78e12cd9dce3f698b89d5880f56a8b3de
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    hard code env for local testing, successfully sent email with json
+
+weekly-digest-email/db.js
+weekly-digest-email/index.js
+
+commit 83c07f3c34dd799b931b912498565153dfddbf0f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-06-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-06-02
+
+    set up mjml
+
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/index.js
+weekly-digest-email/package-lock.json
+weekly-digest-email/package.json
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 3e7695ca0be656857ab0a5cd0210bdf9f205ecb9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-05-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-05-31
+
+    trying to test, working thru some errors
+
+weekly-digest-email/index.js
+weekly-digest-email/models/User.ts
+weekly-digest-email/package-lock.json
+weekly-digest-email/package.json
+weekly-digest-email/test-local.ts
+weekly-digest-email/tsconfig.json
+
+commit 2eecedefd89e7229d698a15ac4dd451e2e5592bc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-05-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-05-31
+
+    init weekly digest code not tested
+
+weekly-digest-email/aggregators/getOverdueTasks.ts
+weekly-digest-email/aggregators/getUpcomingTasks.js
+weekly-digest-email/aggregators/main.js
+weekly-digest-email/buildPayload.ts
+weekly-digest-email/db.js
+weekly-digest-email/example.json
+weekly-digest-email/index.js
+weekly-digest-email/models/Task.ts
+weekly-digest-email/models/User.ts
+weekly-digest-email/sendWeeklyDigest.ts
+weekly-digest-email/template.mjml
+weekly-digest-email/templateBuilder.ts
+
+commit 5cbe9c93008abac80a9acdb2ef2d8c5a45bbaa87
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-05-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-05-31
+
+    update with latest from console editor
+
+notification-resolver/index.mjs
+
+commit c9168860d7ac894df78f548eab25134226466084
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-05-02
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-05-02
+
+    init notification-resolver lambda
+
+notification-resolver/index.mjs
+notification-resolver/package-lock.json
+notification-resolver/package.json
+package-lock.json
+
+commit ce93bc22473ece0a30ad977cbca6a13d5f54e78e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-04-03
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-04-03
+
+    last few spotify badges and count multitrack releases
+
+chartmetrics-daily-scheduler/gamification/sp-releases/fast-follow.js
+chartmetrics-daily-scheduler/gamification/sp-releases/half-year-hustle.js
+chartmetrics-daily-scheduler/gamification/sp-releases/monthly-marathon.js
+chartmetrics-daily-scheduler/gamification/sp-releases/on-schedule-overdrive.js
+chartmetrics-daily-scheduler/gamification/sp-releases/release-rookie.js
+chartmetrics-daily-scheduler/gamification/sp-releases/timely-trickler.js
+chartmetrics-daily-scheduler/gamification/sp-releases/track-marathoner.js
+chartmetrics-daily-scheduler/gamification/sp-releases/yearly-overachiever.js
+chartmetrics-daily-scheduler/gamification/sp-releases/zero-delay-streak.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit dcedbf6756f27cca072f02411903ad43ce50d249
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-31
+
+    add key to badge award and pull for monthly listeners in SQS script
+
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit dda7ac7cb357a3186c8601800b4898c74cd9f98b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-25
+
+    5-22 sustained growth
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/sustained-growth.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+chartmetrics-daily-scheduler/index.js
+
+commit d77a1803debb59a78d782465cc8951fd4d0e941e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-25
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-25
+
+    all listener badges but 5-22 should be good to go
+
+chartmetrics-daily-scheduler/constants/percentageThreshold.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/helpers/calculateDifferencePercentageHelper.js
+chartmetrics-daily-scheduler/gamification/monthly-listeners/index.js
+chartmetrics-daily-scheduler/helpers/spotify/getSpotifyListenersHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit c349d46447dc81a7180ac7f14a51c57cfb65b8bc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    pull cm_album id in release schema
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+
+commit b000e0736d40cc8d2ad7fdf91525c06e863db6a8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    5-26 thru 5-32 SP Releases badges part 1
+
+chartmetrics-daily-scheduler/gamification/sp-releases/fast-follow.js
+chartmetrics-daily-scheduler/gamification/sp-releases/half-year-hustle.js
+chartmetrics-daily-scheduler/gamification/sp-releases/on-schedule-overdrive.js
+chartmetrics-daily-scheduler/gamification/sp-releases/timely-trickler.js
+chartmetrics-daily-scheduler/gamification/sp-releases/track-marathoner.js
+chartmetrics-daily-scheduler/gamification/sp-releases/yearly-overachiever.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 549112aa008b4c695232471d2bda5292cbc4e969
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    5-27 badge and pull releases data from CM
+
+chartmetrics-daily-scheduler/constants/badgeTypes.js
+chartmetrics-daily-scheduler/gamification/sp-releases/monthly-marathon.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+
+commit bf498a245953bf291b3e43fc3e74db9efb570da9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    5-08 Multi Hit Champion
+
+chartmetrics-daily-scheduler/gamification/sp-streams/multi-hit-champion.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 3ff92a2766cf0899298ce59b9064f1bf5cb25860
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    5-06, 07, 09, 10 - per-track streams closely following release date
+
+chartmetrics-daily-scheduler/gamification/sp-streams/listener-magnet.js
+chartmetrics-daily-scheduler/gamification/sp-streams/platinum-performer.js
+chartmetrics-daily-scheduler/gamification/sp-streams/streaming-surge.js
+chartmetrics-daily-scheduler/gamification/sp-streams/viral-track.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit ba0a7dd45a155eff069c5302576fc6b23b8c75eb
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-24
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-24
+
+    5-04 Rising Hit
+
+chartmetrics-daily-scheduler/gamification/sp-streams/rising-hit.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 5cdc49ccfcec97d80875ae0767491384b352cd5e
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-21
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-21
+
+    import fix: social model import
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/index.js
+
+commit 974309fe96a89b2c9f68c4c89ebc7e14d9406f43
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-21
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-21
+
+    schema update: baseline metrics added
+
+spotify-sqs-trigger-lambda/models/Social.js
+
+commit 1fab124c63a2077863273267339f135cb24c7f86
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-21
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-21
+
+    added monthly listeners in baseline metrics
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit e1513396335c057fd1b373745a8b1b2af50ec681
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-21
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-21
+
+    total listeners count updated
+
+chartmetrics-daily-scheduler/helpers/spotify/getSpotifyListenersHelper.js
+
+commit 246f6c482db7d57b0bef1feecbfaa5f384ddd11c
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    added todo
+
+chartmetrics-daily-scheduler/helpers/spotify/getSpotifyListenersHelper.js
+
+commit a2760b5181a5dc2f9ab6d323dc7ccafe661a6324
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    monthly listeners gamification added
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/index.js
+chartmetrics-daily-scheduler/helpers/spotify/getSpotifyListenersHelper.js
+
+commit 7d7da31efbc16686f173b062abd23921f241d256
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    difference percentage calculation helper added
+
+chartmetrics-daily-scheduler/gamification/monthly-listeners/helpers/calculateDifferencePercentageHelper.js
+
+commit 501f0e1cee2ca146431cd32b3d1ac1542864f045
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    monthly listeners award check cases added
+
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+
+commit 9663e61600c3c75b7c7ec1d3e64cb734085858ba
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    percentage threshold constants added
+
+chartmetrics-daily-scheduler/constants/percentageThreshold.js
+
+commit e7d32a5dc00ea88709312b6c966324345bf5b888
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2025-03-19
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2025-03-19
+
+    added monthly listeners badges
+
+chartmetrics-daily-scheduler/constants/badgeTypes.js
+
+commit 741203649d5bdf547cb57ab8aace8a80ccd7542e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-17
+
+    first spotify badge 5-01 First Hit working
+
+chartmetrics-daily-scheduler/constants/badgeTypes.js
+chartmetrics-daily-scheduler/constants/emailActions.js
+chartmetrics-daily-scheduler/gamification/sp-streams/first-hit.js
+chartmetrics-daily-scheduler/helpers/email/emailHelper.js
+chartmetrics-daily-scheduler/helpers/email/templates/awardBadge.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/forgotPassword.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/invitation.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/onboarding.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/otp.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/overdueTasks.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/upcomingTasks.template.js
+chartmetrics-daily-scheduler/helpers/emailHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/spotifyBadgeCheckerHelper.js
+chartmetrics-daily-scheduler/models/Badge.js
+chartmetrics-daily-scheduler/models/Social.js
+instagram-daily-scheduler/helpers/emailHelper.js
+instagram-daily-scheduler/index.js
+
+commit 8c8d3e31ac1753574938dfd19a3669a8a47223d0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-17
+
+    rename a few badges
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-posts/daily-conqueror.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit e15836d08b648d2cacf3cf6d5e93b1f841292ead
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-17
+
+    uncomment for dev
+
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+
+commit bae44c80b97b3726beb3278fc32571035bc8f114
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-17
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-17
+
+    upcoming tasks - don't include completed tasks in digest
+
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+
+commit 93855710e275da7d1728f0147698e55795384c8e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-14
+
+    4-08 thru 4-13 post streak badges
+
+instagram-daily-scheduler/gamification/ig-posts/daily-double.js
+instagram-daily-scheduler/gamification/ig-posts/fortnight-fervor.js
+instagram-daily-scheduler/gamification/ig-posts/seven-day-surge.js
+instagram-daily-scheduler/gamification/ig-posts/social-surge.js
+instagram-daily-scheduler/gamification/ig-posts/thirty-day-streak.js
+instagram-daily-scheduler/gamification/ig-posts/weekly-warrior.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 703b92581bd5718d225923e8fa48833fb2658e45
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-14
+
+    4-02 thru 4-07 total post badges
+
+instagram-daily-scheduler/gamification/ig-posts/content-conqueror.js
+instagram-daily-scheduler/gamification/ig-posts/content-starter.js
+instagram-daily-scheduler/gamification/ig-posts/digital-dynamo.js
+instagram-daily-scheduler/gamification/ig-posts/media-maven.js
+instagram-daily-scheduler/gamification/ig-posts/mega-poster.js
+instagram-daily-scheduler/gamification/ig-posts/post-pro.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 386ad283f967f9c4d969e7086dc84349bda6f5f7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-14
+
+    4-01 First Post
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-posts/first-post.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 92ec20e1da667645d8748e4287e52e60fe60892b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-13
+
+    all follower badges added
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-followers/audience-ascender.js
+instagram-daily-scheduler/gamification/ig-followers/cultural-icon.js
+instagram-daily-scheduler/gamification/ig-followers/epic-expansion.js
+instagram-daily-scheduler/gamification/ig-followers/follower-foundation.js
+instagram-daily-scheduler/gamification/ig-followers/follower-surge.js
+instagram-daily-scheduler/gamification/ig-followers/growth-starter.js
+instagram-daily-scheduler/gamification/ig-followers/legendary-growth.js
+instagram-daily-scheduler/gamification/ig-followers/momentum-builder.js
+instagram-daily-scheduler/gamification/ig-followers/rapid-surge.js
+instagram-daily-scheduler/gamification/ig-followers/social-superstar.js
+instagram-daily-scheduler/gamification/ig-followers/steady-climber.js
+instagram-daily-scheduler/gamification/ig-followers/viral-visionary.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit caa05700b8f0b4084cf1b56500546ef51af5c2c9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-13
+
+    4-30 Ultimate Amplifier
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-followers/ultimate-amplifier.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 09cae4e1dbea0d38b23f1cb2057e2d6427f09c58
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-13
+
+    4-29 Exponential Expander
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-followers/exponential-expander.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit add8dc879195a7c9348c42f1fbd38784337240ce
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-13
+
+    first ig follower badge - 4-28 Audience Accelerator
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-followers/audience-accelerator.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 502108de595c922e2dfabb89194eac5e9c97065c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-21 Engagement Accelerator, store baseline engagement when first onboard (SQS)
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-accelerator.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/models/Social.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 4ac56dba594b9b6f3c2c157750e9fe6a38539057
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-21 Engagement Accelerator, store baseline engagement when first onboard (SQS)
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-accelerator.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/models/Social.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit a2c61ac167af20350c3f11491c6c13f7faab26b2
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-20 Engagement Legend
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-legend.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit d71c5c79c599e81a1117066f8c6ba0bc9d98a448
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-19 Viral Engagement
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/viral-engagement.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 8d13073ad705a519e1832cb7b414d26ae5107730
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-18 Community Catalyst
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/community-catalyst.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 60980bd6b94587fd41e1ea877bad6bc97ab91fbe
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-11
+
+    4-17 Fan Connection Pro
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/fan-connection-pro.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+
+commit 22d22bacc8e51abe0b16ec046a37da94bee42fcb
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-10
+
+    accidentally commited testing id
+
+instagram-daily-scheduler/index.js
+
+commit f5df0803d8d2364de18bd82154a5d27bfd0cdeb9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-10
+
+    4-16 Engagement Booster tested
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-booster.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit b22521e2eadd96fe349397d5d070e911b9ae2c59
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-10
+
+    4-15 Interaction Improver test passed
+
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/gamification/ig-engagement/interaction-improver.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 63d95b0feffac6a4e04cfabbfeb3aa3a065ced7a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-10
+
+    for 30-60 days back, estimate followers. Store follower data for engagement calcs
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit bdfdf27fd7e6aae7da25051656ca509622548323
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-10
+
+    get 60 days of metrics and posts with no gaps
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 95ba0da4fd1df530f6afb8fda0ee5fc9f6d66ef3
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-06
+
+    fix: ignore completed tasks in overdue task email check
+
+overdueTaskTest/helpers/artistHealthCheck.js
+
+commit 23c22019d387285c3c65db3425f2b48c09299c01
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-06
+
+    4-01 engagement initiate
+
+instagram-daily-scheduler/constants/awardBadge.template.js
+instagram-daily-scheduler/constants/badgeTypes.js
+instagram-daily-scheduler/constants/emailActions.js
+instagram-daily-scheduler/gamification/ig-engagement/engagement-initiate.js
+instagram-daily-scheduler/helpers/emailHelper.js
+instagram-daily-scheduler/helpers/instagramBadgeCheckerHelper.js
+instagram-daily-scheduler/index.js
+instagram-daily-scheduler/models/Badge.js
+instagram-daily-scheduler/models/User.js
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+instagram-daily-scheduler/utils/language.js
+
+commit 36e83e10a402dbef5d53def766d08b00ed241e34
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-03-03
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-03-03
+
+    successfully saved historical posts data
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/saveOverViewHelper.js
+instagram-daily-scheduler/models/InstagramMetrics.js
+
+commit 1a630140e8d8f1460f1f685ad0a7865b0c5a68c8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-31
+
+    add fields to sp track details
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+
+commit 987300951e7d03f19e402e1a85020c4a7ce7a6d1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-30
+
+    per-post engagement all time for daily scheduler
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 7a5252fde4b7a539e86fc33441de004929985850
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-30
+
+    engagement shows up historically, update query for posts limit
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 1b992d97fc372f1fb688c3d78c9f8b0221414ca0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-30
+
+    calc engagement correctly for most recent day
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 612e21adb225b830a13fd678cd5522c1c5731e32
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-27
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-27
+
+    add calc engagement to daily scheduler
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 8fefe668f56fcf72832f3495a8d3d62351bf63f2
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-27
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-27
+
+    sqs: only calculate engagement for days where we pulled content interactions
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 3a2dbfbdb17016680c0c6374032ada0b84679c96
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-26
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-26
+
+    add engagement rate to ig sqs
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 789519416de758fda3bf9a7b60008e6b0dd2f01b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-21
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-21
+
+    fix bug from pushing testing changes
+
+.gitignore
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/index.js
+
+commit c44c2ecb68ee5ae365713a5971ab166b78aa0ed7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-18
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-18
+
+    add note about cm tracks limit
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit 952dfecc620bf9a26b55f8caf97a544aaf3225b4
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-18
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-18
+
+    add release date and sort desc
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+
+commit 2b4f01d020237a41d5e26437c6090f0554a0618a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-16
+
+    update demographic calculation for daily scheduler
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+
+commit 047ed80435df33a7bc3a76d1fde7b86e5ca3a29b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-16
+
+    fetch track info in daily-scheduler
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit 18091594b02884ae019c71a98b9686d21b6ea0f7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-16
+
+    ability to fetch track info from cm
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+
+commit 28d1aef25a5b79b9f2daadc227f066de01da459a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-11
+
+    reset test event for deploy
+
+spotify-sqs-trigger-lambda/index.js
+
+commit 372f0115e2ee2e298da1fbd6cdee26f1c14b0408
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-11
+
+    fix f/l ratio calculation
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit ab3381fd77ceee96200482150e344651d2f0a0cf
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-11
+
+    sqs: pull demographics and save social model
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit 17bbbe2bc6ab9359f54954fe299fa660c84294bb
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-11
+
+    demographics use latest entry instead of totaling
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit 063497e1071bf3b82cd34595352fc187dcf4757c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-11
+
+    sqs trigger save social model and update to demographics handling
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/index.js
+
+commit 6e7693e20598a62de4e7ecaef91c6d477005a19b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-10
+
+    comment test request
+
+spotify-sqs-trigger-lambda/index.js
+
+commit f2d7074b8e8dc2791619e886ea713d1a96934567
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-10
+
+    comment event
+
+spotify-sqs-trigger-lambda/index.js
+
+commit 5e7ea0c507f188c27cfa5fa2a88a4a5ead8b68f7
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-10
+
+    link artist by URL, update SQS
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/index.js
+
+commit 5f117b7535601ea1c2a773cd363fd2f398ec1942
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-06
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-06
+
+    rename overdueTaskTest to match AWS
+
+notification-system-artist-health-check/overdueTasks-9-13-24_EVO-660_3.zip
+notification-system-artist-health-check/overdueTasks8.zip
+overdueTaskTest/db.js
+overdueTaskTest/helpers/artistHealthCheck.js
+overdueTaskTest/helpers/email/templates/forgotPassword.template.js
+overdueTaskTest/helpers/email/templates/invitation.template.js
+overdueTaskTest/helpers/email/templates/onboarding.template.js
+overdueTaskTest/helpers/email/templates/otp.template.js
+overdueTaskTest/helpers/email/templates/overdueTasks.template.js
+overdueTaskTest/helpers/email/templates/upcomingTasks.template.js
+overdueTaskTest/helpers/emailHelper.js
+overdueTaskTest/index.js
+overdueTaskTest/models/Task.js
+overdueTaskTest/models/User.js
+overdueTaskTest/package-lock.json
+overdueTaskTest/package.json
+overdueTaskTest/utils/AppError.js
+overdueTaskTest/utils/catchAsync.js
+overdueTaskTest/utils/httpStatusCode.js
+upcoming-tasks-digest/upcoming-tasks-digest-9-10-24_3.zip
+upcoming-tasks-digest/upcoming-tasks-digest-9-13-24_EVO-660_2.zip
+
+commit c1f6ec1604690d378912964bf13e6cdb083d9498
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-01-03
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-01-03
+
+    pull monthly listeners directly instead of calculating, typo fix
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+
+commit 027d93f09bff1b2c709ea216f1cc0bed64e21767
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-27
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-27
+
+    update ses sender name
+
+chartmetrics-daily-scheduler/helpers/emailHelper.js
+notification-system-artist-health-check/helpers/emailHelper.js
+upcoming-tasks-digest/helpers/emailHelper.js
+
+commit 5df03a934a9cb8f3f3f8aa12c30f7ac3abcdcdd9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    add .zip to gitignore
+
+.gitignore
+
+commit cd5422a0901cd9cb16185bf6716150c643f45a7e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    fix axios version mismatch
+
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+
+commit c17f641b2ba380b26927bb5687d306f5171c9c8f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    update imports and packages for daily
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+
+commit dc9bcf5e5b0d1594858841646c41b575d4e80b41
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    apply IG token refresh logic to daily scheduler
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/index.js
+
+commit c70bc67275a7b39f9ba0e06667ca8298e9325d5f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    test get long token worked
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 03788ac576b4ce0d6c98a7eee73fb58140e285ed
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-12-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-12-12
+
+    successfully retrieved long-lived IG token, need to save it in db
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/index.js
+instagram-sqs-trigger-lambda/package-lock.json
+instagram-sqs-trigger-lambda/package.json
+
+commit eb8783243aefd7d954e0ba38cd898d13386bde23
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-14
+
+    put back to all users for prod
+
+chartmetrics-daily-scheduler/index.js
+
+commit 3fd91d60965a5423ea6d621dfcd5fa35007f16a8
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-14
+
+    refactored to separate function and tested cm retry, all good
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+
+commit 8adb6110cf9ac29d251597d3ca578c366241bc70
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-14
+
+    revert all changes to spotify-sqs-trigger, metric drop detection will be done on a schedule instead via chartmetrics-daily-scheduler
+
+spotify-sqs-trigger-lambda/event.json
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/helpers/email/templates/forgotPassword.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/invitation.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/metricsDrop.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/onboarding.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/otp.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/overdueTasks.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/upcomingTasks.template.js
+spotify-sqs-trigger-lambda/helpers/emailHelper.js
+spotify-sqs-trigger-lambda/models/MetricMaximums.js
+spotify-sqs-trigger-lambda/models/User.js
+spotify-sqs-trigger-lambda/package-lock.json
+spotify-sqs-trigger-lambda/package.json
+
+commit ce7e0c75ecc1659a5d3244571f9c2ccad1eb936c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-14
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-14
+
+    added metric drop detection to cm daily scheduler
+
+chartmetrics-daily-scheduler/helpers/email/templates/forgotPassword.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/invitation.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/metricsDrop.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/onboarding.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/otp.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/overdueTasks.template.js
+chartmetrics-daily-scheduler/helpers/email/templates/upcomingTasks.template.js
+chartmetrics-daily-scheduler/helpers/emailHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/index.js
+chartmetrics-daily-scheduler/models/MetricMaximums.js
+chartmetrics-daily-scheduler/models/User.js
+chartmetrics-daily-scheduler/package-lock.json
+chartmetrics-daily-scheduler/package.json
+
+commit 72a0f518c225c2f483fa9b6d150e983959a9e278
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-13
+
+    metrics drop email successfully sent from local
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/helpers/email/templates/forgotPassword.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/invitation.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/metricsDrop.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/onboarding.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/otp.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/overdueTasks.template.js
+spotify-sqs-trigger-lambda/helpers/email/templates/upcomingTasks.template.js
+spotify-sqs-trigger-lambda/helpers/emailHelper.js
+spotify-sqs-trigger-lambda/models/User.js
+spotify-sqs-trigger-lambda/package-lock.json
+spotify-sqs-trigger-lambda/package.json
+
+commit f2a76ab3dd9acf7896124eb5f47aa48d9c3ecc80
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-13
+
+    tested and working, one minor change to emailHelper
+
+notification-system-artist-health-check/helpers/email/templates/forgotPassword.template.js
+notification-system-artist-health-check/helpers/email/templates/invitation.template.js
+notification-system-artist-health-check/helpers/email/templates/onboarding.template.js
+notification-system-artist-health-check/helpers/email/templates/otp.template.js
+notification-system-artist-health-check/helpers/email/templates/overdueTasks.template.js
+notification-system-artist-health-check/helpers/email/templates/upcomingTasks.template.js
+notification-system-artist-health-check/helpers/emailHelper.js
+notification-system-artist-health-check/overdueTasks-9-13-24_EVO-660_3.zip
+upcoming-tasks-digest/helpers/email/templates/forgotPassword.template.js
+upcoming-tasks-digest/helpers/email/templates/invitation.template.js
+upcoming-tasks-digest/helpers/email/templates/onboarding.template.js
+upcoming-tasks-digest/helpers/email/templates/otp.template.js
+upcoming-tasks-digest/helpers/email/templates/overdueTasks.template.js
+upcoming-tasks-digest/helpers/email/templates/upcomingTasks.template.js
+upcoming-tasks-digest/helpers/emailHelper.js
+upcoming-tasks-digest/upcoming-tasks-digest-9-13-24_EVO-660_2.zip
+
+commit 141355f80fd8e5d5528118714dd9d90aeed0822e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-13
+
+    threshold-detection logic seems to be working
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/MetricMaximums.js
+
+commit fb5988b2adf0a4734d69140c22b35b2622a9633c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-12
+
+    working on testing for just me adding event
+
+spotify-sqs-trigger-lambda/event.json
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+
+commit 122829400aeffaffe037cc866717217f33a2a6db
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-12
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-12
+
+    add helper for saving max values in spotify lambda
+
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/models/MetricMaximums.js
+
+commit 47f02ad7c6aea486195b63a38758da59937f7b19
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    revert notification-system-artist-health-check changes
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/helpers/emailHelper.js
+
+commit da138eacd48e372af2b31b11848170e4bc2caddc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    update artist health check file
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+
+commit a95d183b5a19968919345c6af371b0e5f585d9b1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    tested and working as expected, uploaded to lambda
+
+upcoming-tasks-digest/helpers/emailHelper.js
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+upcoming-tasks-digest/upcoming-tasks-digest-9-10-24_3.zip
+
+commit f0a6955b879ed429c5ac5a619fe699f572151377
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    single artist local test working
+
+.gitignore
+upcoming-tasks-digest/db.js
+upcoming-tasks-digest/helpers/dateUtils.js
+upcoming-tasks-digest/helpers/emailHelper.js
+upcoming-tasks-digest/helpers/upcomingTasksDigest.js
+upcoming-tasks-digest/index.js
+upcoming-tasks-digest/models/Task.js
+upcoming-tasks-digest/models/User.js
+upcoming-tasks-digest/package-lock.json
+upcoming-tasks-digest/package.json
+upcoming-tasks-digest/utils/AppError.js
+upcoming-tasks-digest/utils/catchAsync.js
+upcoming-tasks-digest/utils/httpStatusCode.js
+
+commit fc751ed2c9b4658e16158f8e71d1a5043dc13fae
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    init branch
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/helpers/emailHelper.js
+
+commit 2b38476a8a3c117aa30e9cc9411b0830c32d17e6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-09-10
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-09-10
+
+    adding zip of current version that was uploaded to aws
+
+notification-system-artist-health-check/overdueTasks8.zip
+
+commit a79bdbde86209dc5433300d6aa75f6dc26a4ae21
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-09-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-09-05
+
+    added chartemetrics sqs trigger
+
+spotify-sqs-trigger-lambda/db.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsArtistMetricsHelper.js
+spotify-sqs-trigger-lambda/helpers/chartMetricsAuthHelper.js
+spotify-sqs-trigger-lambda/helpers/language.js
+spotify-sqs-trigger-lambda/helpers/overviewHelper.js
+spotify-sqs-trigger-lambda/index.js
+spotify-sqs-trigger-lambda/models/ChartMetricsUser.js
+spotify-sqs-trigger-lambda/models/Chartmetrics.js
+spotify-sqs-trigger-lambda/models/Social.js
+spotify-sqs-trigger-lambda/models/SpotifyMetrics.js
+spotify-sqs-trigger-lambda/package-lock.json
+spotify-sqs-trigger-lambda/package.json
+spotify-sqs-trigger-lambda/utils/AppError.js
+spotify-sqs-trigger-lambda/utils/httpStatusCode.js
+
+commit f368ec5d1e8421885e1c1b7250f95a9c7abf9568
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-09-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-09-05
+
+    removed unused imports
+
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+
+commit 5dd8d39ff830e97342a3c27c33913e3f0d62334f
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-09-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-09-05
+
+    demographics field added
+
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+
+commit a0bdbc7936613b00fcffffe1358e578ecec8b203
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-09-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-09-05
+
+    demographics metrics added
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+
+commit 0a1b22f2141820c1973125c078524ee7bd4eee47
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-29
+
+    switch email list to all users. ready to test
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/helpers/emailHelper.js
+
+commit 9f6e83975dc56c2fa3506b9c9758af843f486fc9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-29
+
+    updated template, tested locally
+
+notification-system-artist-health-check/helpers/emailHelper.js
+
+commit 8c46368e7f3c3da2461365451f56734fe5d50d49
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-29
+
+    email sent successfully from deployed lambda
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/helpers/emailHelper.js
+notification-system-artist-health-check/index.js
+
+commit 20d314aeac98c235b9850ab976566e17768d0b41
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-29
+
+    email sending successfully for test user
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/index.js
+notification-system-artist-health-check/models/User.js
+
+commit 371c9ca96d23fc80baadfd647896a800f3b77725
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-08-27
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-08-27
+
+    added bulkwrite instead of insertmany for historical metrics update
+
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+
+commit 48712bd9d0fd2ff6fdc7b7f1b09f186614a7f268
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-26
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-26
+
+    currently not running anything locally, need to test
+
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/index.js
+notification-system-artist-health-check/package.json
+
+commit 2aeeb2c1d114523451aa20df8a5bf2d870e3e86c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2024-08-26
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2024-08-26
+
+    init health check stuff
+
+notification-system-artist-health-check/db.js
+notification-system-artist-health-check/helpers/artistHealthCheck.js
+notification-system-artist-health-check/helpers/emailHelper.js
+notification-system-artist-health-check/index.js
+notification-system-artist-health-check/models/Task.js
+notification-system-artist-health-check/package-lock.json
+notification-system-artist-health-check/package.json
+notification-system-artist-health-check/utils/AppError.js
+notification-system-artist-health-check/utils/catchAsync.js
+notification-system-artist-health-check/utils/httpStatusCode.js
+
+commit d7761a0b1b2f176de310651968e4e505cd02c9a6
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-08-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-08-05
+
+    daily sheduler fixes
+
+instagram-daily-scheduler/db.js
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/saveOverViewHelper.js
+instagram-daily-scheduler/index.js
+
+commit 088fb2fb400ac7bf4bdbcdaed18a827f948abe17
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-08-05
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-08-05
+
+    instagram and chartmetrics daily scheduelr fixes
+
+chartmetrics-daily-scheduler/db.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/index.js
+chartmetrics-daily-scheduler/models/Social.js
+
+commit deddd648641be664a9af92a7ab9ee7b8c5b01e9e
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-07-30
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-07-30
+
+    instagram historical metrics sqs trigger updated
+
+instagram-sqs-trigger-lambda/db.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/index.js
+
+commit 49f7abe37db824e54e37f94dff3adefc96e4a57c
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-07-28
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-07-28
+
+    added scheduler and minor updates
+
+chartmetrics-daily-scheduler/db.js
+chartmetrics-daily-scheduler/index.js
+instagram-daily-scheduler/db.js
+instagram-daily-scheduler/helpers/instagramOverviewHelper.js
+instagram-daily-scheduler/helpers/language.js
+instagram-daily-scheduler/helpers/saveOverViewHelper.js
+instagram-daily-scheduler/index.js
+instagram-daily-scheduler/models/InstagramMetrics.js
+instagram-daily-scheduler/models/Social.js
+instagram-daily-scheduler/models/SocialTokens.js
+instagram-daily-scheduler/package-lock.json
+instagram-daily-scheduler/package.json
+instagram-daily-scheduler/utils/AppError.js
+instagram-daily-scheduler/utils/catchAsync.js
+instagram-daily-scheduler/utils/httpStatusCode.js
+instagram-sqs-trigger-lambda/db.js
+
+commit f506a0dd4b2d362024557507f253c54cb2fa5159
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-07-28
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-07-28
+
+    added instagram sqs trigger and daily scheduler
+
+instagram-sqs-trigger-lambda/db.js
+instagram-sqs-trigger-lambda/helpers/instagramOverviewHelper.js
+instagram-sqs-trigger-lambda/helpers/language.js
+instagram-sqs-trigger-lambda/helpers/saveOverViewHelper.js
+instagram-sqs-trigger-lambda/index.js
+instagram-sqs-trigger-lambda/models/InstagramMetrics.js
+instagram-sqs-trigger-lambda/models/Social.js
+instagram-sqs-trigger-lambda/models/SocialTokens.js
+instagram-sqs-trigger-lambda/package-lock.json
+instagram-sqs-trigger-lambda/package.json
+instagram-sqs-trigger-lambda/utils/AppError.js
+instagram-sqs-trigger-lambda/utils/catchAsync.js
+instagram-sqs-trigger-lambda/utils/httpStatusCode.js
+
+commit 8fb7e0e5e45f137760a5e73a4ac337f8097e6358
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-07-06
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-07-06
+
+    chartmmtric ffxes
+
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/index.js
+
+commit 7ba709286ea4bfacc4d7b57d1e1dd5961189e478
+Author:     sd3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-06-30
+Commit:     sd3871 <soohra.dabadi@gmail.com>
+CommitDate: 2024-06-30
+
+    chartmetrics daily schedule added
+
+chartmetrics-daily-scheduler/db.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsArtistMetricsHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/chartMetricsAuthHelper.js
+chartmetrics-daily-scheduler/helpers/spotify/language.js
+chartmetrics-daily-scheduler/helpers/spotify/overviewHelper.js
+chartmetrics-daily-scheduler/index.js
+chartmetrics-daily-scheduler/models/ChartMetricsUser.js
+chartmetrics-daily-scheduler/models/Chartmetrics.js
+chartmetrics-daily-scheduler/models/SpotifyMetrics.js
+chartmetrics-daily-scheduler/package-lock.json
+chartmetrics-daily-scheduler/package.json
+chartmetrics-daily-scheduler/service/schedulerService.js
+chartmetrics-daily-scheduler/utils/AppError.js
+chartmetrics-daily-scheduler/utils/catchAsync.js
+chartmetrics-daily-scheduler/utils/httpStatusCode.js
+
+commit 7aa0e2ff8013badc0e6791e3058a192c4a254bb6
+Author:     sooraz3871 <soohra.dabadi@gmail.com>
+AuthorDate: 2024-06-26
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2024-06-26
+
+    Initial commit
+
+.gitignore
+LICENSE
+README.md

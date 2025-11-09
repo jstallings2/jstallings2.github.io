@@ -1,0 +1,436 @@
+commit 68d6471cee1604bd5d6debe3ba6a034dfcd4e42a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-16
+
+    streaming processor deployed success maxfiles1
+
+cloudformation.complete.yaml
+
+commit f3b8d70ce2d366a8effeadb2e13181404c87015e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-16
+
+    streaming implementation for scraper
+
+cloudformation.complete.yaml
+cloudformation.stepfunctions.yaml
+scripts/extract_cost_metrics.py
+src/scraper/cli.py
+src/scraper/downloader.py
+src/scraper/metrics.py
+
+commit 16c5813877ac0e867b254599c00cfdbc8bfe90ac
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-15
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-15
+
+    finally valid output bcbs
+
+cloudformation.complete.yaml
+
+commit ba0caa113e12826da2a40c17b2f9dd7ac61881dd
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-15
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-15
+
+    successful run with max files 5
+
+cloudformation.complete.yaml
+deploy/deploy-master.sh
+src/scraper/downloader.py
+
+commit fc98c22c02a27dcac3a0c2cc6876999928a9d1d4
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-13
+
+    email notification for pipeline execution results (have to actually deploy again for this to work)
+
+cloudformation.complete.yaml
+deploy/deploy-master.sh
+
+commit 76d1ca35cd3faffaef6161c2db8d049211eec240
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-13
+
+    deployed bcbs, running
+
+cloudformation.complete.yaml
+deploy/deploy-master.sh
+deploy/test-pipeline.sh
+
+commit 7032c2354f1f66fb90a037a0cb74af8f86791ac6
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    cms validation step
+
+src/scraper/cli.py
+src/scraper/downloader.py
+src/scraper/index_loader.py
+
+commit f332b61ecf296c3666a4b38a02563cd519750021
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    bcbs la successful local test
+
+VERSION
+cloudformation.complete.yaml
+deploy/DEPLOY-FROM-CHECKPOINT.sh
+deploy/deploy-master.sh
+deploy/pre-deployment-test.sh
+src/scraper/cli.py
+
+commit 802d6bd1c787f9844a61da123fb131cd7a540536
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-09
+
+    cleanup repo, add bcbs la
+
+CLOUD_DEPLOYMENT.md
+CLOUD_DEPLOYMENT_COMPLETE.md
+COMPLETE_CI_CD_SYSTEM.md
+COST_ESTIMATION_IMPLEMENTATION.md
+DEPLOYMENT_SUMMARY.md
+Dockerfile.cloud
+Dockerfile.ecs
+Dockerfile.lambda
+ECS_MIGRATION_GUIDE.md
+HTML_DISCOVERY_IMPLEMENTATION.md
+INTEGRATION_PLAN.md
+INTEGRATION_STATUS.md
+METRICS_COLLECTION.md
+PERMISSIONS_SETUP.md
+STEP_FUNCTIONS_PIPELINE.md
+VERSIONED_DEPLOYMENT.md
+VERSIONING_UPDATE.md
+cloudformation.ecs.simple.yaml
+cloudformation.ecs.yaml
+cloudformation.stepfunctions.versioned.yaml
+cloudformation.yaml
+deploy/aws-setup.sh
+deploy/ci-cd-pipeline.sh
+deploy/continue-docker-build.sh
+deploy/create-lambda.sh
+deploy/debug_test.sh
+deploy/deploy-all.sh
+deploy/deploy-container.sh
+deploy/deploy-ecs-simple.sh
+deploy/deploy-ecs.sh
+deploy/deploy-infrastructure-first.sh
+deploy/deploy-master.sh
+deploy/deploy-master.sh.bak
+deploy/deploy-versioned.sh
+deploy/deploy-with-images.sh
+deploy/deploy-with-monitoring.sh
+deploy/frozen_test.sh
+deploy/integrated-setup.sh
+deploy/setup-triggers.sh
+deploy/test-all-states.sh
+deploy/test-ecs.sh
+deploy/test-versioned-deployment.sh
+deploy/update-images-only.sh
+deploy/update-stack-only.sh
+deploy/version-manager.sh
+src/scraper/company_mappings.py
+src/scraper/html_discovery.py
+test-config.yaml
+test_lambda.py
+test_pipeline.py
+
+commit 5c657efe8b0b3828f23d7e16519608fd1596fb36
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-01
+
+    end-to-end iac worked
+
+Dockerfile
+cloudformation.complete.yaml
+deploy/debug_test.sh
+deploy/deploy-with-monitoring.sh
+deploy/frozen_test.sh
+deploy/frozen_test_with_aws.sh
+entrypoint.sh
+src/scraper/cli.py
+src/scraper/html_discovery.py
+
+commit 3dd3636aaf1fffdc40faea18fdabf54c6f724d0d
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-01
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-01
+
+    pipeline successful no errors, but no data written
+
+.github/workflows/deploy.yml
+COMPLETE_CI_CD_SYSTEM.md
+VERSION
+VERSIONED_DEPLOYMENT.md
+VERSIONING_UPDATE.md
+cloudformation.complete.yaml
+cloudformation.stepfunctions.versioned.yaml
+cloudformation.stepfunctions.yaml
+deploy/ci-cd-pipeline.sh
+deploy/cleanup-deployment.sh
+deploy/cleanup-ecr-before-delete.sh
+deploy/continue-docker-build.sh
+deploy/deploy-infrastructure-first.sh
+deploy/deploy-versioned.sh
+deploy/deploy-with-images.sh
+deploy/deploy-with-monitoring.sh
+deploy/test-versioned-deployment.sh
+deploy/update-images-only.sh
+deploy/update-stack-only.sh
+deploy/version-manager.sh
+
+commit c68497a58fabe54ad496e6e90ab2daf3fb22ae02
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-31
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-31
+
+    update scraper for all states
+
+cloudformation.stepfunctions.yaml
+deploy/test-all-states.sh
+src/scraper/cli.py
+src/scraper/html_discovery.py
+
+commit ad9e00f037e4fbd5b93151bc9f69f9080965b425
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    ran successfully and got numbers
+
+deploy/cleanup-deployment.sh
+deploy/deploy-master.sh
+deploy/deploy-master.sh.bak
+deploy/deploy-stepfunctions.sh
+deploy/test-pipeline.sh
+
+commit 60a2057768712fc8c60d9fff7a52134b000fd63f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    cost estimation before deploy
+
+COST_ESTIMATION_IMPLEMENTATION.md
+METRICS_COLLECTION.md
+scripts/extract_cost_metrics.py
+scripts/run_with_metrics.sh
+scripts/test_metrics.py
+src/scraper/cli.py
+src/scraper/metrics.py
+src/scraper/s3_uploader.py
+
+commit c29613c3ec761f0725a3297fb852243d4fc75b5e
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    upd readme
+
+README.md
+
+commit d927e7013ea760eda4fc1f81a811296078db31f9
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    full pipeline working for cigna CO
+
+cloudformation.stepfunctions.yaml
+src/scraper/s3_uploader.py
+
+commit 19cd9161e67b6d845798a7ff2648e0756b3a2cc1
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    scraper raw path dump fixes
+
+cloudformation.stepfunctions.yaml
+src/scraper/cli.py
+src/scraper/s3_uploader.py
+
+commit fecb74d74e52a253d0261858b611c565fcbc0e24
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    deploy connect both stages via stepfunctions - tested and working
+
+STEP_FUNCTIONS_PIPELINE.md
+cloudformation.stepfunctions.yaml
+deploy/deploy-stepfunctions.sh
+deploy/test-pipeline.sh
+src/scraper/cli.py
+src/scraper/manifest.py
+
+commit 54da503793a508f8d5ee815b350977301722cb97
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-29
+
+    scraper deployed and tested for cigna
+
+CLOUD_DEPLOYMENT_COMPLETE.md
+DEPLOYMENT_SUMMARY.md
+Dockerfile.ecs
+Dockerfile.lambda
+ECS_MIGRATION_GUIDE.md
+cloudformation.ecs.simple.yaml
+cloudformation.ecs.yaml
+deploy/create-lambda.sh
+deploy/deploy-all.sh
+deploy/deploy-container.sh
+deploy/deploy-ecs-simple.sh
+deploy/deploy-ecs.sh
+deploy/run-ecs-task.sh
+deploy/setup-triggers.sh
+deploy/test-ecs.sh
+deploy/test-pipeline.sh
+requirements.lambda.txt
+src/scraper/cli.py
+src/scraper/company_mappings.py
+src/scraper/s3_uploader.py
+test-config.yaml
+test_lambda.py
+test_lambda.zip
+
+commit cdb0d1b6e8042db529344b26978314afee7ed9f2
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    scraper cloud deployment full
+
+INTEGRATION_PLAN.md
+INTEGRATION_STATUS.md
+PERMISSIONS_SETUP.md
+attach-policy.sh
+config.production.yaml
+deploy/integrated-setup.sh
+scripts/trigger-batch-processing.sh
+update-permissions.sh
+
+commit bef0d289e29b79dc4b6ca435647021fe41766819
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    s3 upload works
+
+cloudformation.yaml
+deploy/aws-setup.sh
+src/scraper/cli.py
+src/scraper/job_scheduler.py
+src/scraper/s3_uploader.py
+test_pipeline.py
+
+commit 2c31d4eb28bc8bed7bfea66dff3fc861a0e813cd
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    initial cloud setup
+
+CLOUD_DEPLOYMENT.md
+Dockerfile.cloud
+Makefile
+README.md
+config.example.yaml
+deploy/aws-setup.sh
+requirements.txt
+src/job_scheduler.py
+src/lambda_function.py
+src/scraper/cli.py
+src/scraper/s3_uploader.py
+test_pipeline.py
+
+commit 390317121694f392e719ea7601ca84b554d368d0
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    successfully got all (colorado) json rate files from page link -> scrape -> dump
+
+src/scraper/cli.py
+src/scraper/html_discovery.py
+src/scraper/index_loader.py
+
+commit df9f68bef87e831584657e7384dd404651d992ef
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    html discovery - give it the human-readable-files page link it can go from there
+
+HTML_DISCOVERY_IMPLEMENTATION.md
+README.md
+requirements.txt
+src/scraper/cli.py
+src/scraper/html_discovery.py
+
+commit 21adca8046039f417b4acbd6b39e108759aeb188
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-28
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-28
+
+    Initial commit: Healthcare MRF Scraper prototype
+    
+    - Python-based scraper for healthcare transparency-in-coverage JSON files
+    - Concurrent HTTP download with retries and integrity checks
+    - Manifest generation and S3 upload capabilities
+    - CLI interface for seed-index processing
+    - Docker support and comprehensive documentation
+
+.env.example
+.gitignore
+Dockerfile
+Makefile
+README.md
+requirements.txt
+sample/README.md
+src/scraper/__init__.py
+src/scraper/cli.py
+src/scraper/config.py
+src/scraper/downloader.py
+src/scraper/index_loader.py
+src/scraper/logging_utils.py
+src/scraper/manifest.py
+src/scraper/s3_uploader.py
+src/scraper/utils.py

@@ -1,0 +1,400 @@
+commit fde3e53b34ae30ad2df9c7308bf1d8cc2dbefb03
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-16
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-16
+
+    streaming processor deployed success maxfiles1
+
+src/data/parsers/base_parser.py
+src/data/parsers/bcbs_louisiana_parser.py
+src/data/parsers/unified_processor.py
+src/utils/cloud_storage.py
+test_streaming_fix.py
+
+commit 603804ab0a1c632d5b16f7dc094419e7abf2b53f
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-15
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-15
+
+    successful run with max files 5
+
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/2025-09-01_hmola_index_processed.csv
+data/processed/CA_ELHOMEDELHO_processed.csv
+data/processed/processing_report_20250915_143104.json
+scripts/run_pipeline.py
+
+commit 35af72e8c14dbfd3b52e7bda61bc7ea8ccf47645
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-13
+
+    deployed bcbs, running
+
+Dockerfile
+
+commit 30c97f744bea9f8eb0cb99947e8ffc14c03ce18a
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-13
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-13
+
+    success with several rate files bcbs
+
+scripts/run_pipeline.py
+scripts/test_full_pipeline.py
+
+commit 9e47020866f660aadd52513059fe8a664c3eb36d
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    got actual rate data for bcbs
+
+scripts/test_full_pipeline.py
+src/data/parsers/bcbs_louisiana_parser.py
+
+commit 7096e64baa33d544e75ca52ffb3197bafb378f30
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    unified processor with cms validation step per-file
+
+Dockerfile.cms
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/2025-09-01_hmola_index_processed.csv
+data/processed/processing_report_20250911_193220.json
+data/raw/2025-09-01_hmola_index.json
+data/raw/2025-09_301_71B0_in-network-rates_01_of_02.json.gz
+data/raw/2025-09_800_72B0_in-network-rates_01_of_02.json.gz
+s3:/healthcare-pipeline-curated-dev-local/processed/2025-09-01_hmola_index_processed.csv
+scripts/run_pipeline.py
+src/data/parsers/base_parser.py
+src/data/parsers/hybrid_standardizer.py
+src/data/parsers/unified_processor.py
+src/data/validators/cms_validator.py
+test_integrated_processor.py
+
+commit 5bab631fd4f9a6e40faacafc68f142e1f7bc4c79
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    cms validation step
+
+Dockerfile
+Dockerfile.cms
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_denver-co-connect-network_in-network-rates.json_processed (1).csv
+scripts/run_pipeline.py
+scripts/setup_cms_validator.py
+scripts/test_full_pipeline.py
+src/data/parsers/unified_mrf_parser.py
+src/data/validators/cms_validator.py
+
+commit 6fcc6a118a6c89b26c16f01840f54f62f9a94d55
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-11
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-11
+
+    bcbs la sucessful local test
+
+HYBRID_STANDARDIZATION_COMPLETE.md
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.parquet
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.parquet
+data/processed/2025-09-01_hmola_index_processed.csv
+data/processed/CA_ELHOMEDELHO_processed.csv
+data/processed/processing_report.json
+data/processed/processing_report_20250825_150302.json
+data/processed/processing_report_20250825_150339.json
+data/processed/processing_report_20250825_150451.json
+data/processed/processing_report_20250825_150541.json
+data/processed/processing_report_20250825_150551.json
+data/processed/processing_report_20250825_150655.json
+data/processed/processing_report_20250825_150705.json
+data/processed/processing_report_20250825_224737.json
+data/processed/processing_report_20250825_224817.json
+data/processed/processing_report_20250825_224848.json
+data/processed/processing_report_20250825_224940.json
+data/processed/processing_report_20250825_225053.json
+data/processed/processing_report_20250830_183901.json
+processing_report_20250910_191901.json
+scripts/README_TESTING.md
+scripts/run_pipeline.py
+scripts/test_full_pipeline.py
+scripts/test_hybrid_standardization.py
+scripts/test_processor_local_s3.py
+scripts/test_processor_simple_s3.py
+scripts/test_simple_hybrid.py
+src/data/parsers/__init__.py
+src/data/parsers/base_parser.py
+src/data/parsers/bcbs_louisiana_parser.py
+src/data/parsers/hybrid_standardizer.py
+src/data/parsers/unified_processor.py
+src/utils/cloud_storage.py
+
+commit 5f2189089a44befe26163297d08b065df5953116
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-09-09
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-09-09
+
+    cleanup repo
+
+CHANGES_SUMMARY.md
+DEPLOYMENT_GUIDE.md
+PROCESSOR_METRICS_IMPLEMENTATION.md
+PROJECT_SUMMARY.md
+
+commit 5daeaba6e7bbe0d84f444a0984d656b6303a27e5
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    ran successfully and got numbers
+
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/processing_report_20250830_183901.json
+scripts/deploy_aws.sh
+
+commit 44d3d136bec66561bb59b1f683836165118b8b6c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    before test
+
+scripts/extract_processor_metrics.py
+scripts/test_processor_metrics.py
+src/metrics.py
+
+commit c04140d01137fd4d618a8e74ec43ba39971d45dc
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    cost estimation before deploy - processor
+
+PROCESSOR_METRICS_IMPLEMENTATION.md
+scripts/extract_processor_metrics.py
+scripts/run_pipeline.py
+src/metrics.py
+
+commit 06fcc9032c50956bf0bc04ebfe51b175660ea98b
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    upd readme
+
+README.md
+
+commit 6ea3c3cd552eef69d78b526fd2d00f8422970c1c
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-30
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-30
+
+    new x86 processor setup
+
+scripts/debug_s3_access.py
+scripts/run_pipeline.py
+scripts/test_processor_flow.py
+scripts/test_s3_simple.py
+scripts/test_s3fs_glob.py
+src/utils/cloud_storage.py
+
+commit 7eebf0e7107f3dbf12b4c3fe3181b0e689a4aa39
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-29
+
+    deployed s3 path changes and uncompression to aws
+
+env.template
+scripts/deploy_aws.sh
+scripts/deploy_cloud.sh
+scripts/deploy_cloud_test.py
+scripts/setup_cloud_env.sh
+scripts/update_job_command.sh
+src/utils/cloud_storage.py
+
+commit 46b6339eaef9fa040ffb19eec9725910d9d702ba
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-29
+Commit:     Jacob Stallings <jacobcstallings@icloud.com>
+CommitDate: 2025-08-29
+
+    update s3 util for path handling and uncompress json.gz files
+
+CHANGES_SUMMARY.md
+README.md
+config/settings.py
+scripts/run_pipeline.py
+scripts/s3_path_utils.py
+scripts/test_new_features.py
+src/utils/cloud_storage.py
+
+commit feba2c32ce12ad94c8b4809cf1ffeb6046c143ab
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-26
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-26
+
+    sample command commented in dockerfile
+
+Dockerfile
+
+commit 72553ca5a325ab184a65bbc69947d1d72815addc
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-26
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-26
+
+    dont push env
+
+.gitignore
+
+commit 18834609db8681adca513b944bf1625d305bf6e3
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-25
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-25
+
+    docker setup
+
+DEPLOYMENT_GUIDE.md
+Dockerfile
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.parquet
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.parquet
+data/processed/processing_report_20250825_224737.json
+data/processed/processing_report_20250825_224817.json
+data/processed/processing_report_20250825_224848.json
+data/processed/processing_report_20250825_224940.json
+data/processed/processing_report_20250825_225053.json
+docker-run.sh
+requirements-docker.txt
+
+commit b4b9c22098728e5be313096f185a143f1c90416b
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-25
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-25
+
+    set up for docker/cloud move but not tested as needed to update macos to install docker/colima/qemu
+
+Dockerfile
+README.md
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.parquet
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.json
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.parquet
+data/processed/processing_report_20250825_150302.json
+data/processed/processing_report_20250825_150339.json
+data/processed/processing_report_20250825_150451.json
+data/processed/processing_report_20250825_150541.json
+data/processed/processing_report_20250825_150551.json
+data/processed/processing_report_20250825_150655.json
+data/processed/processing_report_20250825_150705.json
+docker-compose.yml
+env.template
+requirements.txt
+scripts/run_pipeline.py
+src/data/parsers/anthem_parser.py
+src/data/parsers/base_parser.py
+src/data/parsers/cigna_parser.py
+src/utils/cloud_storage.py
+src/utils/file_utils.py
+
+commit 6eda558d2bb1fca9e118bb564753b3caeb02e54f
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-25
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-25
+
+    cigna hybrid structure handled, processed 12k rows
+
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/CA_ELHOMEDELHO_processed.csv
+data/processed/processing_report.json
+data/raw/chunk_cigna_in-network-2025-08-01.json
+src/data/parsers/cigna_parser.py
+
+commit cca3ba6fdd69c7aa951a0ddf28de540452fe78c7
+Author:     jstallings2 <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-25
+Commit:     jstallings2 <jacobcstallings@icloud.com>
+CommitDate: 2025-08-25
+
+    project setup
+
+.gitignore
+PROJECT_SUMMARY.md
+README.md
+config/__init__.py
+config/logging_config.py
+config/settings.py
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates_processed.csv
+data/processed/2025-08-01_CO_cigna-health-life-insurance-company_index_processed.csv
+data/processed/CA_ELHOMEDELHO_processed.csv
+data/processed/processing_report.json
+data/raw/2025-08-01_CO_cigna-health-life-insurance-company_colorado-cpop_in-network-rates.json
+data/raw/2025-08-01_CO_cigna-health-life-insurance-company_index.json
+data/raw/2025-08_11009711.json
+data/raw/CA_ELHOMEDELHO.json
+notebooks/01_data_exploration.ipynb
+requirements.txt
+scripts/example_usage.py
+scripts/run_pipeline.py
+scripts/test_setup.py
+src/__init__.py
+src/data/__init__.py
+src/data/parsers/__init__.py
+src/data/parsers/anthem_parser.py
+src/data/parsers/base_parser.py
+src/data/parsers/cigna_parser.py
+src/data/transformers/__init__.py
+src/data/validators/__init__.py
+src/pipeline/__init__.py
+src/utils/__init__.py
+src/utils/file_utils.py
+tests/__init__.py
+tests/test_parsers/__init__.py
+tests/test_pipeline/__init__.py
+tests/test_transformers/__init__.py
+
+commit f653cf8955ea70202de64de7599b9174d264cb20
+Author:     Jacob Stallings <jacobcstallings@icloud.com>
+AuthorDate: 2025-08-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2025-08-22
+
+    Initial commit
+
+.gitignore
