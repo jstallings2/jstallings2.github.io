@@ -38,8 +38,8 @@ const SiteHeader: React.FC = () => {
           </motion.div>
         </Link>
 
-        {/* Navigation */}
-        <MainNav />
+        {/* Navigation - Hidden for resume-only version */}
+        {/* <MainNav /> */}
       </div>
     </motion.header>
   );
