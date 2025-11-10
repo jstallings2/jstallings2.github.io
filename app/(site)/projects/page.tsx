@@ -36,7 +36,7 @@ export default function ProjectsPage() {
                     title={project.title}
                     subtitle={project.subtitle}
                     tags={project.tags}
-                    href={project.url}
+                    titleLink={project.url}
                   >
                     <p className="text-sm leading-relaxed">
                       {project.description}
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
         {/* Full-stack / Data / Infrastructure */}
         <FadeIn delay={0.2}>
           <div className="mb-16">
-            <h3 className="mb-6 text-2xl font-semibold text-accentSecondary">
+            <h3 className="mb-6 text-2xl font-semibold text-accent">
               Full-Stack & Infrastructure
             </h3>
             <div className="grid gap-6 md:grid-cols-2">
@@ -61,7 +61,7 @@ export default function ProjectsPage() {
                     title={project.title}
                     subtitle={project.subtitle}
                     tags={project.tags}
-                    href={project.url}
+                    titleLink={project.url}
                   >
                     <p className="text-sm leading-relaxed">
                       {project.description}
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
                       title={project.title}
                       subtitle={project.subtitle}
                       tags={project.tags}
-                      href={project.url}
+                      titleLink={project.url}
                     >
                       <p className="text-sm leading-relaxed">
                         {project.description}

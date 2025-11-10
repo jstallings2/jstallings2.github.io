@@ -39,11 +39,11 @@ export default function ContactPage() {
       <div className="container mx-auto px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <FadeIn>
-            <SectionHeader title="Let's Connect" />
+            <SectionHeader title="Let&apos;s Connect" />
             <p className="mb-12 text-lg text-muted-light">
-              Let's talk about tools, sound, or projects. Whether you're
+              Let&apos;s talk about tools, sound, or projects. Whether you&apos;re
               interested in collaboration, have a project in mind, or just want
-              to chat about audio technology and music—I'd love to hear from
+              to chat about audio technology and music—I&apos;d love to hear from
               you.
             </p>
           </FadeIn>

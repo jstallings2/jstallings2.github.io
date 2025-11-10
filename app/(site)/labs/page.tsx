@@ -18,7 +18,7 @@ export default function LabsPage() {
           <p className="mb-12 max-w-2xl text-muted-light">
             This space is dedicated to experimental interfaces, WebAudio demos,
             and creative coding projects. These are living tools—prototypes,
-            research, and explorations of what's possible when code meets sound.
+            research, and explorations of what&apos;s possible when code meets sound.
           </p>
         </FadeIn>
 
@@ -40,8 +40,7 @@ export default function LabsPage() {
               reactive animations, interactive DSP tutorials, and more.
             </p>
             <p className="mt-4 font-mono text-xs text-muted">
-              // This shell is ready for WebGL canvas + WebAudio node graph
-              integrations
+              {/* This shell is ready for WebGL canvas + WebAudio node graph integrations */}
             </p>
           </div>
         </FadeIn>

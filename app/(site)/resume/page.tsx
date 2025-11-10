@@ -438,7 +438,7 @@ export default function ResumePage() {
                     <li className="flex">
                       <span className="mr-2 text-muted">•</span>
                       <span>
-                        Shipped multi-format plugin support (AAX/VST) and
+                        Shipped multi-format plugin support (AU/VST3) and
                         Windows compatibility via Projucer exporter updates and
                         platform fixes
                       </span>
@@ -594,7 +594,7 @@ export default function ResumePage() {
                       <span className="mr-3 text-accent">•</span>
                       <span>
                         Implemented streaming scraper with Step Functions
-                        orchestration and CloudFormation-based IaC; "all states"
+                        orchestration and CloudFormation-based IaC; &quot;all states&quot;
                         mode and index discovery
                       </span>
                     </li>

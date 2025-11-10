@@ -70,7 +70,7 @@ export default function AboutPage() {
                 </span>
                 , I approach every project with both analytical rigor and
                 creative intuition. Whether designing DSP algorithms, building
-                scalable data pipelines, or producing electronic music, I'm
+                scalable data pipelines, or producing electronic music, I&apos;m
                 driven by the intersection of technology and art.
               </p>
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <FadeIn delay={0.3}>
             <div className="rounded-2xl border border-accent/30 bg-surface p-8 text-center">
               <h3 className="mb-3 text-2xl font-semibold text-gray-100">
-                Let's Work Together
+                Let&apos;s Work Together
               </h3>
               <p className="mb-6 text-muted-light">
                 Interested in collaboration or want to learn more about my work?

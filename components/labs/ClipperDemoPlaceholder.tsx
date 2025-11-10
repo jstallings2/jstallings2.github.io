@@ -33,11 +33,11 @@ const ClipperDemoPlaceholder: React.FC = () => {
           </p>
           <div className="mt-6 text-xs text-muted">
             <p className="mb-2 font-mono">
-              // TODO: Integrate WebAudio API
+              {/* TODO: Integrate WebAudio API */}
               <br />
-              // TODO: Add WebGL visualization
+              {/* TODO: Add WebGL visualization */}
               <br />
-              // TODO: Implement real-time clipping algorithm
+              {/* TODO: Implement real-time clipping algorithm */}
             </p>
           </div>
         </div>

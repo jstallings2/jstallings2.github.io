@@ -25,7 +25,8 @@ const HomeFeaturedProjects: React.FC = () => {
               <Card
                 title={project.title}
                 tags={project.tags}
-                href={project.url || "/projects"}
+                titleLink={project.url}
+                href={!project.url ? "/projects" : undefined}
               >
                 <p className="text-sm leading-relaxed">{project.description}</p>
               </Card>
