@@ -79,7 +79,7 @@ export default function ResumePage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <Button
-              href="#" // TODO: Add link to PDF resume
+              href="/Jacob-Stallings-Resume-2025.pdf"
               variant="primary"
             >
               Download PDF
